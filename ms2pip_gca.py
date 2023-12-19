@@ -212,7 +212,7 @@ def create_mgf(cxt, peptide_file: str, mgf_file: str, output_file: str, mzml_pat
             file_list = ftp_list_files(ftp, ftp_path)
             print(f"Files in {ftp_path}:")
     else:
-        # read files with mzML extesnion from filesystem
+        # read files with mzML extension from filesystem
         file_list = [f for f in os.listdir(mzml_path) if f.endswith(".mzML")]
         print(f"Files in {mzml_path}:")
 
