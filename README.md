@@ -25,10 +25,6 @@ The aim of this project is to search normal tissue proteomics datasets to identi
 - Identified peptides file: [PXD010154-pangenome-canonical-0.01.parquet](http://ftp.pride.ebi.ac.uk/pub/databases/pride/resources/proteomes/proteogenomics/noncanonical-tissues-2023/PXD010154-pangenome-canonical-0.01.parquet)
 - Output files from `quantms` can be accessed [here](http://ftp.pride.ebi.ac.uk/pub/databases/pride/resources/proteomes/proteogenomics/noncanonical-tissues-2023/PXD010154-pangenome-canonical-0.01/)
 
-### Non-canonical search
-- Identified peptides file: [PXD010154-pangenome-noncanonical-0.01.parquet](http://ftp.pride.ebi.ac.uk/pub/databases/pride/resources/proteomes/proteogenomics/noncanonical-tissues-2023/PXD010154-pangenome-noncanonical-0.01.parquet)
-- Output files from quantms can be accessed [here](http://ftp.pride.ebi.ac.uk/pub/databases/pride/resources/proteomes/proteogenomics/noncanonical-tissues-2023/PXD010154-pangenome-noncanonical-0.01/)
-
 ### Manuscript
 - [Document](https://docs.google.com/document/d/1UmF2FLh54rYBSoGRUGBg4dR7QFPcCBNSjdc2mSOEcgM/edit?usp=sharing) outlining main findings and a draft version of the manuscript
 - [Data files](https://drive.google.com/drive/folders/1iCJRQ56gQIHlXgMRsc2axQxKB3QvzD4W?usp=sharing) folder for supplementary data files and figures
