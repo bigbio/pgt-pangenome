@@ -32,7 +32,7 @@ plt.vlines(upper_threshold, 0, 100, color='red', label=f'Upper 95th Percentile t
 plt.xlabel('SNR')
 plt.ylabel('Frequency')
 plt.legend()
-plt.savefig("./signal_to_noise.png")
+plt.savefig("./ms2pip-plots/signal_to_noise.png")
 
 # Remove rows with y-ions and b-ions wrongly correlated
 data = data[data['pearsonr_Y'] > 0.1]
@@ -84,7 +84,7 @@ plt.vlines(threshold_value_dp, 0, 1600, color='red', label=f'{threshold_percenti
 plt.ylabel('Frequency')
 plt.title('B and Y ion Pearson Correlations')
 plt.legend()
-plt.savefig("./ms2pip_filtered_score.png")
+plt.savefig("./ms2pip-plots/ms2pip_filtered_score.png")
 
 
 data = data[data['corrected_dot_product'] > threshold_value_dp]
@@ -104,7 +104,7 @@ plt.title('Distribution of PeptideAtlas observations')
 plt.xlabel('PeptideAtlas observations')
 plt.ylabel('Frequency')
 plt.xticks(bins[:-1])  # Set x-axis ticks to bin edges for clarity
-plt.savefig("./peptide_atlas.png")
+plt.savefig("./peptide-atlas-plots/peptide_atlas.png")
 
 data.to_csv('gca_peptides_for_deeplc_95thperc_observations_ms2pip_filtered.tsv', sep='\t', index=False)
 
