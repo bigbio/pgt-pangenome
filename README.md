@@ -29,3 +29,16 @@ The aim of this project is to search normal tissue proteomics datasets to identi
 - [Document](https://docs.google.com/document/d/1UmF2FLh54rYBSoGRUGBg4dR7QFPcCBNSjdc2mSOEcgM/edit?usp=sharing) outlining main findings and a draft version of the manuscript
 - [Data files](https://drive.google.com/drive/folders/1iCJRQ56gQIHlXgMRsc2axQxKB3QvzD4W?usp=sharing) folder for supplementary data files and figures
 - [Excel file](https://docs.google.com/spreadsheets/d/1KbDpwPlrJugCX2NG5XBsamLPoxiIf-pSa7vW7xkj7D8/edit?usp=sharing) for any supplementary tables
+
+
+### Detailed explanation of each file
+- [db_generation.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/db_generation.ipynb) Detailed operations to generate the project database
+- [gca_canonical_validation.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/gca_canonical_validation.ipynb) The GCA peptide in the results was compared with canonical protein to prevent misjudgment and modified to the input format supported by deeplc
+- [gca_peptides_for_deeplc.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/gca_peptides_for_deeplc.ipynb) Use deeplc to predict GCA peptides and see the effect of deeplc
+- [deeplc_gca.py](https://github.com/bigbio/pgt-pangenome/blob/main/deeplc_gca.py) For each sample, the Grch38 peptide of that sample was used to calibrate the model to predict the GCA peptide
+- [deeplc_res_format_getObservations.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/deeplc_res_format_getObservations.ipynb) The filter results of deeplc were used to find the number of PeptideAtlas observations
+- [ms2pip_gca.py](https://github.com/bigbio/pgt-pangenome/blob/main/ms2pip_gca.py) The peptides filtered by deeplc were predicted using ms2pip
+- [ms2_spectra_filter.py](https://github.com/bigbio/pgt-pangenome/blob/main/ms2_spectra_filter.py) Filter with ms2pip prediction results
+- [get_tissue_distribution.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/get_tissue_distribution.ipynb) Obtain the distribution of initial and final result peptides in each tissue
+
+
