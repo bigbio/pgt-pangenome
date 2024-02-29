@@ -32,13 +32,16 @@ The aim of this project is to search normal tissue proteomics datasets to identi
 
 
 ### Detailed explanation of each file
+- [blast_with_canonical.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/blast_with_canonical.ipynb) Obtaining variant information with canonical protein by blast
+- [Count.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/Count.ipynb) Statistics on novel peptide information
 - [db_generation.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/db_generation.ipynb) Detailed operations to generate the project database
-- [gca_canonical_validation.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/gca_canonical_validation.ipynb) The GCA peptide in the results was compared with canonical protein to prevent misjudgment and modified to the input format supported by deeplc
-- [gca_peptides_for_deeplc.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/gca_peptides_for_deeplc.ipynb) Use deeplc to predict GCA peptides and see the effect of deeplc
 - [deeplc_gca.py](https://github.com/bigbio/pgt-pangenome/blob/main/deeplc_gca.py) For each sample, the Grch38 peptide of that sample was used to calibrate the model to predict the GCA peptide
 - [deeplc_res_format_getObservations.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/deeplc_res_format_getObservations.ipynb) The filter results of deeplc were used to find the number of PeptideAtlas observations
+- [gca_canonical_validation.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/gca_canonical_validation.ipynb) The GCA peptide in the results was compared with canonical protein to prevent misjudgment and modified to the input format supported by deeplc
+- [gca_peptides_for_deeplc.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/gca_peptides_for_deeplc.ipynb) Use deeplc to predict GCA peptides and see the effect of deeplc
+- [get_tissue_distribution.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/get_tissue_distribution.ipynb) Obtain the distribution of initial and final result peptides in each tissue
 - [ms2pip_gca.py](https://github.com/bigbio/pgt-pangenome/blob/main/ms2pip_gca.py) The peptides filtered by deeplc were predicted using ms2pip
 - [ms2_spectra_filter.py](https://github.com/bigbio/pgt-pangenome/blob/main/ms2_spectra_filter.py) Filter with ms2pip prediction results
-- [get_tissue_distribution.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/get_tissue_distribution.ipynb) Obtain the distribution of initial and final result peptides in each tissue
+
 
 
