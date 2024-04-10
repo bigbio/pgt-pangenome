@@ -48,6 +48,7 @@ The aim of this project is to search normal tissue proteomics datasets to identi
 - [get_tissue_distribution.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/get_tissue_distribution.ipynb) Obtain the distribution of initial and final result peptides in each tissue
 - [ms2pip_gca.py](https://github.com/bigbio/pgt-pangenome/blob/main/ms2pip_gca.py) The peptides filtered by deeplc were predicted using ms2pip
 - [ms2_spectra_filter.py](https://github.com/bigbio/pgt-pangenome/blob/main/ms2_spectra_filter.py) Filter with ms2pip prediction results
+#### SDRF
 - [PXD010154.sdrf.tsv](https://github.com/bigbio/pgt-pangenome/blob/main/PXD010154.sdrf.tsv) SDRF corresponding to PXD010154
 
 
