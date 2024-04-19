@@ -1,14 +1,34 @@
 # Pangenome Proteogenomics
+
 Protegenomics analysis based on Pangenome references
 
-The aim of this project is to search normal tissue proteomics datasets to identify novel proteins using the latest genome assemblies published via the PanGenome project.
+The aim of this project is to search normal tissue proteomics datasets to identify novel proteins using the latest genome assemblies published via the [PanGenome project](https://www.nature.com/articles/s41586-023-05896-x).
 
-### Main Tasks
-- Compare scores and FDR for known canonical and novel canonical peptides, check distributions, etc.
-- Revisit FDR caluclations and significant measures for non-canoincal peptides.
-- Analyze the novel canonical, locations, gene types, other evidence for expression, etc.
+## Project Aims
+- Develop a workflow based on [quantms](https://github.com/bigbio/quantms) to reanalyze public proteomics datasets with custom proteogenomics databases.  
+- Develop a workflow that enables systematic validation of novel (non-canonical peptides) using multiple existing tools.
+
+- Performing a comprehensive analysis of multiple `normal` tissue datasets from public domain using databases generated from the latest Pangenome assemblies.
+  - Compare scores and FDR for known canonical and novel canonical peptides, check distributions, etc.
+  - Revisit FDR calculations and significant measures for non-canonical peptides.
+  - Analyze the novel canonical, locations, gene types, other evidence for expression, etc.
+
+- Provide a fasta database with all the novel proteins observed. 
 - Draft manuscript layout and sections.
 
+### Proteogenomics workflow
+
+![alt text](pangenome-workflow.svg)
+
+Workflow components: 
+- **Database generation**: The proteogenomics database is created with [pypgatk](https://github.com/bigbio/py-pgatk). 
+- **quanmts peptide identification**: The proteomics data is searched against the database using [quantms](https://github.com/bigbio/quantms). The workflow uses three search engines including COMET, SAGE and MSGF+ to perform the peptide identification. Percolator is then used to boost the number of peptide identifications and proteomicsLFQ or proteinQuantifier tools are used to perform the quantification and statistical filter of peptides based on the TDA (Target-Decoy approach). 
+- **Post-processing**: The identified peptides are then post-processed to identify novel peptides and perform a comprehensive analysis of the results.
+  - **Peptide Alignment**: The identified peptides are aligned to a Global canonical protein sequences which includes (ENSEMBL, Uniprot TrEMBL) to identify novel peptides.
+  - **Spectrum Validation**: Spectrum identification validation is based on [**MS2PIP**](https://github.com/compomics/ms2pip) and Signal-to-Noise ratio (**SNR**).
+  - **Variant annotation**: The identified peptides that contain Single Aminoacid variants (SAAVs) are validated using [spectrumAI tool](https://github.com/bigbio/py-pgatk)
+  - **Retention time prediction**: The retention time of the identified peptides is predicted using [DeepLC](https://github.com/compomics/DeepLC)
+- **Manual inspection of results using USIs** and [PRIDE USI Viewer](https://www.ebi.ac.uk/pride/archive/usi/)
 
 ### Dataset information
 - Information about the protemics dataset [PXD010154](https://www.ebi.ac.uk/pride/archive/projects/PXD010154) by [Wang et al.](https://www.embopress.org/doi/full/10.15252/msb.20188503) that is used as a reference to search the databases can be obtained from this associated [SDRF file](https://github.com/bigbio/pgt-pangenome/blob/main/PXD010154.sdrf.tsv).
