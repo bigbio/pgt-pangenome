@@ -1,33 +1,25 @@
 """
 This script is used to evaluate the performance of DeepLC on the GCA dataset. The GRCh38 peptides are used to train DeepLC,
-and the GCA peptides are used to evaluate the performance of DeepLC. For each PSM the best PEP is selected.
+and the GCA peptides are used to evaluate the performance of DeepLC. For each PSM, the best PEP is selected.
 The training is performed by SampleID and the evaluation is performed by SampleID. The final output is a csv file with the
 name gca_peptides_for_deeplc_99thperc.csv and gca_peptides_for_deeplc_95thperc.csv. The 99th percentile file contains the
-peptides with an error percentile lower than 99% and the 95th percentile file contains the peptides with an error percentile.
+peptides with an error percentile lower than 99%, and the 95th percentile file contains the peptides with an error percentile.
 
-@author:: Yasset Perez-Riverol (https://github.com/ypriverol)
+@author: Yasset Perez-Riverol (https://github.com/ypriverol)
 """
 
-# import deeplc packages
-from deeplc import DeepLC
-from deeplcretrainer import deeplcretrainer
-
-# Default
-from collections import Counter
-import os
-import urllib.request
-
+import click
 # specific packages
 import pandas as pd
-from matplotlib import pyplot as plt
-from scipy.stats import pearsonr, spearmanr
-import numpy as np
-
 import tensorflow as tf
+# import deeplc packages
+from deeplc import DeepLC
+from matplotlib import pyplot as plt
+
+# Default
 
 tf.get_logger().setLevel("INFO")
 
-from tensorflow.python.eager import context
 from tqdm import tqdm
 import warnings
 
@@ -35,21 +27,44 @@ warnings.filterwarnings("ignore")
 
 from scipy.stats import percentileofscore
 
+CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
 
-def main():
+
+@click.group(context_settings=CONTEXT_SETTINGS)
+def cli():
+    pass
+
+
+@click.command("filter_deeplc", help="Run the ms2pip filtering process to remove low-quality peptides.")
+@click.option("-p", "--canonical_peptide_file", type=click.Path(exists=True),
+              help="The path to the canonical peptide file.", required=True)
+@click.option("-n", "--novel_peptide_file", type=click.Path(exists=True), help="The path to the novel peptide file.",
+              required=True)
+@click.option("-o", "--output_folder", type=click.Path(), help="The path to the output folder.", required=True)
+@click.option("-f", "--output_file_95perc", type=click.Path(),
+              help="The name of the output file for the 95th percentile.", required=True)
+@click.option("-g", "--output_file_99perc", type=click.Path(),
+              help="The name of the output file for the 99th percentile.", required=True)
+def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_folder: str, output_file_95perc: str,
+                  output_file_99perc: str):
     all_gca = []
     max_inst_train = 10000
 
-    df = pd.read_csv("grch_peptides_for_deeplc.csv")
+    df = pd.read_csv(canonical_peptide_file)
     df.fillna("", inplace=True)
     df.index = df["seq"] + "+" + df["modifications"]
 
-    df.sort_values("Posterior error probability", inplace=True)
+    df.sort_values("posterior_error_probability", inplace=True)
     df = df[df["tr"] < 25000]
 
-    df_gca = pd.read_csv("gca_peptides_for_deeplc.csv")
+    df_gca = pd.read_csv(novel_peptide_file)
     df_gca.fillna("", inplace=True)
     df_gca.index = df_gca["seq"] + "+" + df_gca["modifications"]
+
+    # In LFQ experiments, every PSM is associated with a SampleID but if is a TMT experiment, then each PSM is associated with more
+    # than one SampleID. In this case, we use reference_file_name to identify the SampleID.
+    if 'sample_id' not in df.columns:
+        df['sample_id'] = df['reference_file_name']
 
     for name, sub_df in tqdm(df.groupby("sample_id")):
         sub_df_gca = df_gca[df_gca["sample_id"] == name]
@@ -96,41 +111,42 @@ def main():
     )
     plt.plot([500, 6500], [500, 6500], c="grey")
     plt.colorbar()
-    plt.savefig("./all_predictions.png")
+    plt.savefig(output_folder + "/all_predictions.png")
     plt.close()
 
     plt.hist(all_gca_df["error_percentile"], bins=100)
     plt.vlines(99, 0, 800, color="black", label="99th percentile")
     plt.vlines(95, 0, 800, color="grey", label="95th percentile")
     plt.legend()
-    plt.savefig("./all_error_dist.png")
+    plt.savefig(output_folder + "/all_error_dist.png")
     plt.close()
 
     plt.scatter(all_gca_df["error_percentile"], all_gca_df["error"], s=1)
     plt.vlines(99, -4000, 4000, color="black", label="99th percentile")
     plt.vlines(95, -4000, 4000, color="grey", label="95th percentile")
-    plt.savefig("./all_error_perc.png")
+    plt.savefig(output_folder + "/all_error_perc.png")
     plt.close()
 
     plt.scatter(
         all_gca_df["error_percentile"],
-        all_gca_df["Posterior error probability"],
+        all_gca_df["posterior_error_probability"],
         s=4,
         alpha=0.1,
     )
     plt.vlines(99, 0, 0.01, color="black", label="99th percentile")
     plt.vlines(95, 0, 0.01, color="grey", label="95th percentile")
     plt.legend()
-    plt.savefig("./all_error_perc_pep.png")
+    plt.savefig(output_folder + "/all_error_perc_pep.png")
     plt.close()
 
     all_gca_df[all_gca_df["error_percentile"] < 95].to_csv(
-        "gca_peptides_for_deeplc_95thperc.csv"
+        output_folder + "/" + output_file_95perc
     )
     all_gca_df[all_gca_df["error_percentile"] < 99].to_csv(
-        "gca_peptides_for_deeplc_99thperc.csv"
+        output_folder + "/" + output_file_99perc
     )
 
 
+cli.add_command(filter_deeplc)
 if __name__ == "__main__":
-    main()
+    cli()

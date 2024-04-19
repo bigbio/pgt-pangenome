@@ -1,6 +1,6 @@
 """
-This function is used to create the mgf file and run the ms2pipC predictions. In addition it computes additional metrics for
-each spectrum including the number of peaks, signal to noise, difference between the highest and lowest peaks, etc.
+This function is used to create the mgf file and run the ms2pipC predictions. In addition, it computes additional metrics for
+each spectrum including the number of peaks, signal-to-noise, difference between the highest and lowest peaks, etc.
 It contains two methods:
 - create_mgf: This method creates the mgf file from the pep file and the folder with the mzMLs.
 - run_ms2pip: This method runs the ms2pipC predictions for a given mgf file.
@@ -22,6 +22,7 @@ import ssl
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
+
 def download_file_with_progress(ftp, remote_filename, local_filename, chunk_size=8192):
     """
     Download a file from an FTP server with a progress bar displayed in the terminal.
@@ -40,6 +41,7 @@ def download_file_with_progress(ftp, remote_filename, local_filename, chunk_size
 
         ftp.retrbinary(f'RETR {remote_filename}', callback, chunk_size)
 
+
 def ftp_list_files(ftp, path='.'):
     """
     List files in a given path on an FTP server.
@@ -51,6 +53,7 @@ def ftp_list_files(ftp, path='.'):
     ftp.cwd(path)
     ftp.retrlines('LIST', files.append)
     return files
+
 
 def read_spectra_from_mzml(local_file_path: str, peptides: List, spectra: List) -> List:
     exp = MSExperiment()
@@ -74,9 +77,9 @@ def read_spectra_from_mzml(local_file_path: str, peptides: List, spectra: List) 
             ms_level = spec.getMSLevel()
             print("Error reading spectrum: {} {} which is MS level {}".format(peptide['spec_id'], e, ms_level))
 
-
     print("Number of spectra: {} until the file {}".format(len(spectra), local_file_path))
     return spectra
+
 
 params = {
     "ms2pip": {
@@ -86,10 +89,15 @@ params = {
             "Acetyl,42.010565,opt,N-term",
             "Deamidated,0.984016,opt,N",
             "Deamidated,0.984016,opt,Q",
+            "TMT6plex,229.162932,opt,T",
+            "TMT6plex,229.162932,opt,S",
+            "TMT6plex,229.162932,opt,H",
+            "TMT6plex,229.162932,opt,N-term",
+            "TMT6plex,229.162932,opt,K",
         ],
-        "model": "HCD2019",
+        "model": "TMT",
         "frag_method": "HCD",
-        "frag_error": 0.02,
+        "frag_error": 0.5,
         "out": "csv",
         "sptm": [],
         "gptm": [],
@@ -98,10 +106,9 @@ params = {
 
 
 def run_ms2pip_on_mgf(peptide_file: pd.DataFrame, mgf_file: str, num_cpus: int = 4):
-
     ## Get the ms2pipC predictions
     ms2pip = MS2PIP(pep_file=peptide_file, spec_file=mgf_file, params=params, return_results=True, num_cpu=num_cpus,
-                compute_correlations=True)
+                    compute_correlations=True)
     predictions = ms2pip.run()
 
     predictions.replace(np.nan, 0.01, inplace=True)
@@ -110,7 +117,7 @@ def run_ms2pip_on_mgf(peptide_file: pd.DataFrame, mgf_file: str, num_cpus: int =
     ion_columns = predictions.pivot(index='spec_id', columns='ion', values='pearsonr')
     ion_columns.columns = [f'pearsonr_{ion}' for ion in ion_columns.columns]
     predictions = pd.merge(predictions, ion_columns, left_on='spec_id', right_index=True)
-    #remove ion column and duplicate records
+    # remove ion column and duplicate records
     predictions.drop(columns='ion', inplace=True)
     predictions.drop(columns='pearsonr', inplace=True)
     predictions.drop_duplicates(inplace=True)
@@ -163,20 +170,20 @@ def compute_number_misscleavages(original_df: pd.DataFrame) -> pd.DataFrame:
     :return:
     """
     if 'number_misscleavages' not in original_df.columns:
-        original_df['number_misscleavages'] = original_df.apply(lambda x: x['sequence_x'].count('K') + x['seq'].count('R'), axis=1)
+        original_df['number_misscleavages'] = original_df.apply(lambda x: x['seq'].count('K') + x['seq'].count('R'),
+                                                                axis=1)
     return original_df
 
 
 @click.command("create-mgf", help="Create mgf and perform the ms2pipC predictions")
-@click.option("--peptide_file",help="Peptide file with observations in csv",required=True)
-@click.option("--mgf_file",help="The mgf to be created",required=True)
-@click.option("--output_file", help="The output file with the predictions", required=True)
+@click.option("--peptide_file", help="Peptide file with observations in csv", required=True)
+@click.option("--mgf_file", help="The mgf to be created", required=True)
 @click.option("--mzml_path", help="the path with all the mzMLs", required=False)
 @click.option("--ftp_server", help="The FTP server to download the files", required=False)
 @click.option("--ftp_path", help="The FTP path to download the files", required=False)
 @click.option("--local_cache_path", help="The local path to save the files", required=False)
 @click.pass_context
-def create_mgf(cxt, peptide_file: str, mgf_file: str, output_file: str, mzml_path: str = None, ftp_server: str = None,
+def create_mgf(cxt, peptide_file: str, mgf_file: str, mzml_path: str = None, ftp_server: str = None,
                ftp_path: str = None, local_cache_path: str = './'):
     """
     peptide_file: Peptide file with observations in csv
@@ -190,9 +197,9 @@ def create_mgf(cxt, peptide_file: str, mgf_file: str, output_file: str, mzml_pat
         raise ValueError("One of the following parameters must be provided: mzml_path, ftp_server, ftp_path, "
                          "local_cache_path")
 
-    original_df = pd.read_csv(peptide_file, sep="\t")
+    original_df = pd.read_csv(peptide_file, sep=",")
 
-    original_df = compute_number_misscleavages(original_df) # add number_misscleavages column
+    original_df = compute_number_misscleavages(original_df)  # add number_misscleavages column
     df_peprec = original_df[["usi", "seq", "modifications", "charge", 'scan_number', 'reference_file_name']]
     df_peprec = df_peprec.rename(columns={'usi': 'spec_id', 'seq': 'peptide'})
 
@@ -272,7 +279,7 @@ def create_mgf(cxt, peptide_file: str, mgf_file: str, output_file: str, mzml_pat
 
 def compute_signal_to_noise(intensities):
     """
-    Compute the signal to noise ratio for a given spectrum
+    Compute the signal-to-noise ratio for a given spectrum
     :param mz_array: mz values
     :param intesity_array: intesity values
     :return:
@@ -295,7 +302,6 @@ def difference_between_highest_lowest_peaks(intensity_array):
     # compute the difference in intensity between the highest and lowest peaks
     diff_highest_lowest = max(sqrt_intesities) - min(sqrt_intesities)
     return diff_highest_lowest
-
 
 
 def get_mgf_spectrum_properties(predictions, mgf_file):
@@ -328,19 +334,17 @@ def get_mgf_spectrum_properties(predictions, mgf_file):
     return predictions
 
 
-
 @click.command("run-ms2pip", help="Run the ms2pip for a given peptide and mgf")
-@click.option("--peptide_file",help="Peptide file with observations in csv",required=True)
-@click.option("--mgf_file",help="The mgf to be created",required=True)
+@click.option("--peptide_file", help="Peptide file with observations in csv", required=True)
+@click.option("--mgf_file", help="The mgf to be created", required=True)
 @click.option("--output_file", help="The output file with the predictions", required=True)
-@click.option("--ms2pip_cpus",help="Number of CPUS to run ms2pip", required=False, default=4)
-@click.option("--filter_aa",help="Filter peptides with less than filter_aa amino acids", required=False, default=7)
+@click.option("--ms2pip_cpus", help="Number of CPUS to run ms2pip", required=False, default=4)
+@click.option("--filter_aa", help="Filter peptides with less than filter_aa amino acids", required=False, default=7)
 @click.pass_context
 def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, ms2pip_cpus: int = 4, filter_aa: int = 7):
-
-    original_df = pd.read_csv(peptide_file, sep="\t")
+    original_df = pd.read_csv(peptide_file, sep=",")
     if filter_aa > 0:
-        original_df = original_df[original_df['sequence_x'].str.len() >= filter_aa]
+        original_df = original_df[original_df['seq'].str.len() >= filter_aa]
     original_df = compute_number_misscleavages(original_df)  # add number_misscleavages column
     df_peprec = original_df[["usi", "seq", "modifications", "charge", 'scan_number', 'reference_file_name']]
     df_peprec = df_peprec.rename(columns={'usi': 'spec_id', 'seq': 'peptide'})
@@ -352,7 +356,7 @@ def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, ms2pip_c
     original_df = original_df.rename(columns={'usi': 'spec_id'})
     original_df = pd.merge(original_df, predictions, on='spec_id')
     original_df.rename(columns={'spec_id': 'usi'}, inplace=True)
-    original_df.to_csv(output_file, sep="\t", index=False)
+    original_df.to_csv(output_file, sep=",", index=False)
 
     plt.scatter(predictions["pearsonr_B"], predictions["pearsonr_Y"], s=3, alpha=0.1)
     plt.savefig("./ms2pip_all_predictions.png")
@@ -364,5 +368,3 @@ cli.add_command(run_ms2pip)
 
 if __name__ == "__main__":
     cli()
-
-
