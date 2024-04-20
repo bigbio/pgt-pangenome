@@ -163,3 +163,4 @@ cython_debug/
 .ipynb_checkpoints/
 .idea/
 /**/**.parquet
+/**/**.mgf
