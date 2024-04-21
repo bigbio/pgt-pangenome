@@ -164,3 +164,8 @@ cython_debug/
 .idea/
 /**/**.parquet
 /**/**.mgf
+/**/**.fa.gz
+/**/**.fa
+/**/**.fasta.gz
+/**/**.fasta
+

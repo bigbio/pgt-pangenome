@@ -19,6 +19,7 @@ import click
 from tqdm import tqdm
 from matplotlib import pyplot as plt
 import ssl
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 
@@ -45,7 +46,7 @@ def ftp_list_files(ftp, path='.'):
     """
     List files in a given path on an FTP server.
     :param ftp: ftp server
-    :param path: path to list files
+    :param path: path to list a files
     :return: list of files
     """
     files = []
@@ -196,7 +197,10 @@ def create_mgf(cxt, peptide_file: str, mgf_file: str, mzml_path: str = None, ftp
         raise ValueError("One of the following parameters must be provided: mzml_path, ftp_server, ftp_path, "
                          "local_cache_path")
 
-    original_df = pd.read_csv(peptide_file, sep=",")
+    if '.gz' in peptide_file:
+        original_df = pd.read_csv(peptide_file, sep=",", compression='gzip')
+    else:
+        original_df = pd.read_csv(peptide_file, sep=",")
 
     original_df = compute_number_misscleavages(original_df)  # add number_misscleavages column
     df_peprec = original_df[["usi", "seq", "modifications", "charge", 'scan_number', 'reference_file_name']]
@@ -279,8 +283,7 @@ def create_mgf(cxt, peptide_file: str, mgf_file: str, mzml_path: str = None, ftp
 def compute_signal_to_noise(intensities):
     """
     Compute the signal-to-noise ratio for a given spectrum
-    :param mz_array: mz values
-    :param intesity_array: intesity values
+    :param intensities: intensity values
     :return:
     """
     rmsd = np.sqrt(np.mean(np.square(intensities)))
@@ -341,7 +344,12 @@ def get_mgf_spectrum_properties(predictions, mgf_file):
 @click.option("--filter_aa", help="Filter peptides with less than filter_aa amino acids", required=False, default=7)
 @click.pass_context
 def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, ms2pip_cpus: int = 4, filter_aa: int = 7):
-    original_df = pd.read_csv(peptide_file, sep=",")
+
+    if '.gz' in peptide_file:
+        original_df = pd.read_csv(peptide_file, sep=",", compression='gzip')
+    else:
+        original_df = pd.read_csv(peptide_file, sep=",")
+
     if filter_aa > 0:
         original_df = original_df[original_df['seq'].str.len() >= filter_aa]
     original_df = compute_number_misscleavages(original_df)  # add number_misscleavages column
@@ -355,19 +363,19 @@ def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, ms2pip_c
     original_df = original_df.rename(columns={'usi': 'spec_id'})
     original_df = pd.merge(original_df, predictions, on='spec_id')
     original_df.rename(columns={'spec_id': 'usi'}, inplace=True)
-    original_df.to_csv(output_file, sep=",", index=False)
+    original_df.to_csv(output_file, sep=",", index=False, compression='gzip')
 
     plt.scatter(predictions["pearsonr_B"], predictions["pearsonr_Y"], s=3, alpha=0.1)
     plt.savefig("./ms2pip_all_predictions.png")
     plt.close()
 
+
 @click.command("filter-ms2pip", help="Run the ms2pip filtering process to remove low-quality peptides.")
-@click.option( "-p", "--peptide_file", type=str, required=True, help="Peptide sequence to be used for the ms2pip")
+@click.option("-p", "--peptide_file", type=str, required=True, help="Peptide sequence to be used for the ms2pip")
 @click.option("-f", "--folder_output", type=str, required=True, help="Output file after filtering ms2pip threshold")
 @click.option("-o", "--output_file", type=str, required=True, help="Output file after filtering ms2pip threshold")
 @click.option("--number_aa", type=int, default=8, help="Minimum number of amino acids in the peptide sequence")
 def filter_ms2pip(peptide_file: str, folder_output: str, output_file: str, number_aa: int = 8):
-
     data = pd.read_csv(peptide_file, sep=',')
     print("Number from Previous Step and before filtering:", len(data))
 
@@ -446,7 +454,8 @@ def filter_ms2pip(peptide_file: str, folder_output: str, output_file: str, numbe
     plt.savefig(folder_output + "/ms2pip_filtered_score.png")
 
     data = data[data['corrected_dot_product'] > threshold_value_dp]
-    data.to_csv(folder_output + '/' + output_file, sep=',', index=False)
+    data.to_csv(folder_output + '/' + output_file, sep=',', index=False, compression='gzip')
+
 
 cli.add_command(create_mgf)
 cli.add_command(run_ms2pip)
