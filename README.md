@@ -88,7 +88,7 @@ The original PSMs are stored in [quantms.io format](https://github.com/bigbio/qu
 
 ### Other notebooks and files generated during the analysis  
 - [blast_with_canonical.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/blast_with_canonical.ipynb) Obtaining variant information with canonical protein by blast
-- [Count.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/Count.ipynb) Statistics on novel peptide information
+- [count.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/count.ipynb) Statistics on novel peptide information
 - [db_generation.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/db_generation.ipynb) Detailed operations to generate the project database
 Signal-to-Noise ratio.
  - [plots](https://github.com/bigbio/pgt-pangenome/tree/main/plots) Figures from the paper can be accessed here
