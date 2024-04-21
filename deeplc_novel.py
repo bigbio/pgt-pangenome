@@ -50,14 +50,22 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     all_gca = []
     max_inst_train = 10000
 
-    df = pd.read_csv(canonical_peptide_file)
+    if ".gz" in canonical_peptide_file:
+        df = pd.read_csv(canonical_peptide_file, sep=",",compression="gzip")
+    else:
+        df = pd.read_csv(canonical_peptide_file, sep=",")
+
     df.fillna("", inplace=True)
     df.index = df["seq"] + "+" + df["modifications"]
 
     df.sort_values("posterior_error_probability", inplace=True)
     df = df[df["tr"] < 25000]
 
-    df_gca = pd.read_csv(novel_peptide_file)
+    if ".gz" in novel_peptide_file:
+        df_gca = pd.read_csv(novel_peptide_file, sep=",",compression="gzip")
+    else:
+        df_gca = pd.read_csv(novel_peptide_file, sep=",")
+
     df_gca.fillna("", inplace=True)
     df_gca.index = df_gca["seq"] + "+" + df_gca["modifications"]
 
@@ -139,12 +147,8 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     plt.savefig(output_folder + "/all_error_perc_pep.png")
     plt.close()
 
-    all_gca_df[all_gca_df["error_percentile"] < 95].to_csv(
-        output_folder + "/" + output_file_95perc
-    )
-    all_gca_df[all_gca_df["error_percentile"] < 99].to_csv(
-        output_folder + "/" + output_file_99perc
-    )
+    all_gca_df[all_gca_df["error_percentile"] < 95].to_csv(output_folder + "/" + output_file_95perc, index=False,compression="gzip")
+    all_gca_df[all_gca_df["error_percentile"] < 99].to_csv(output_folder + "/" + output_file_99perc, index=False,compression="gzip")
 
 
 cli.add_command(filter_deeplc)
