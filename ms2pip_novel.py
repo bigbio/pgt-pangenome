@@ -5,7 +5,7 @@ It contains two methods:
 - create_mgf: This method creates the mgf file from the pep file and the folder with the mzMLs.
 - run_ms2pip: This method runs the ms2pipC predictions for a given mgf file.
 """
-
+import json
 from ftplib import FTP
 from typing import List
 
@@ -81,31 +81,7 @@ def read_spectra_from_mzml(local_file_path: str, peptides: List, spectra: List) 
     return spectra
 
 
-params = {
-    "ms2pip": {
-        "ptm": [
-            "Oxidation,15.994915,opt,M",
-            "Carbamidomethyl,57.021464,opt,C",
-            "Acetyl,42.010565,opt,N-term",
-            "Deamidated,0.984016,opt,N",
-            "Deamidated,0.984016,opt,Q",
-            "TMT6plex,229.162932,opt,T",
-            "TMT6plex,229.162932,opt,S",
-            "TMT6plex,229.162932,opt,H",
-            "TMT6plex,229.162932,opt,N-term",
-            "TMT6plex,229.162932,opt,K",
-        ],
-        "model": "TMT",
-        "frag_method": "HCD",
-        "frag_error": 0.5,
-        "out": "csv",
-        "sptm": [],
-        "gptm": [],
-    }
-}
-
-
-def run_ms2pip_on_mgf(peptide_file: pd.DataFrame, mgf_file: str, num_cpus: int = 4):
+def run_ms2pip_on_mgf(peptide_file: pd.DataFrame, mgf_file: str, params: dict, num_cpus: int = 4):
     ## Get the ms2pipC predictions
     ms2pip = MS2PIP(pep_file=peptide_file, spec_file=mgf_file, params=params, return_results=True, num_cpu=num_cpus,
                     compute_correlations=True)
@@ -340,10 +316,11 @@ def get_mgf_spectrum_properties(predictions, mgf_file):
 @click.option("--peptide_file", help="Peptide file with observations in csv", required=True)
 @click.option("--mgf_file", help="The mgf to be created", required=True)
 @click.option("--output_file", help="The output file with the predictions", required=True)
+@click.option("--params", help="The ms2pip parameters", required=True, default="ms2pip_params.json")
 @click.option("--ms2pip_cpus", help="Number of CPUS to run ms2pip", required=False, default=4)
 @click.option("--filter_aa", help="Filter peptides with less than filter_aa amino acids", required=False, default=7)
 @click.pass_context
-def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, ms2pip_cpus: int = 4, filter_aa: int = 7):
+def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, params: str, ms2pip_cpus: int = 4, filter_aa: int = 7):
 
     if '.gz' in peptide_file:
         original_df = pd.read_csv(peptide_file, sep=",", compression='gzip')
@@ -356,7 +333,13 @@ def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, ms2pip_c
     df_peprec = original_df[["usi", "seq", "modifications", "charge", 'scan_number', 'reference_file_name']]
     df_peprec = df_peprec.rename(columns={'usi': 'spec_id', 'seq': 'peptide'})
 
-    predictions = run_ms2pip_on_mgf(df_peprec, mgf_file, num_cpus=ms2pip_cpus)
+    if params is not None:
+        with open(params, 'r') as f:
+            params = json.load(f)
+    else:
+        raise ValueError("The ms2pip parameters are required")
+
+    predictions = run_ms2pip_on_mgf(df_peprec, mgf_file, params=params, num_cpus=ms2pip_cpus)
     predictions = get_mgf_spectrum_properties(predictions, mgf_file)
 
     # merge predictions with original df usi column and spec_id are the same.
