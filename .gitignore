@@ -169,3 +169,4 @@ cython_debug/
 /**/**.fasta.gz
 /**/**.fasta
 
+/PXD016999/tables/to-ms2pip-snr-tables/grch_peptides_for_deeplc.csv.gz
