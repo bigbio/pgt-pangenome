@@ -2,3 +2,5 @@ PXD016999/tables/to-ms2pip-snr-tables/gca_peptides_for_deeplc_unique.csv.gz filt
 PXD016999/tables/to-ms2pip-snr-tables/grch_peptides_for_deeplc.csv.gz filter=lfs diff=lfs merge=lfs -text
 PXD016999/tables/to-ms2pip-snr-tables/grch_peptides_for_deeplc_unique.csv.gz filter=lfs diff=lfs merge=lfs -text
 PXD016999/tables/to-ms2pip-snr-tables/gca_peptides_for_deeplc.csv.gz filter=lfs diff=lfs merge=lfs -text
+PXD010154/tables/to-ms2pip-snr-tables/gca_peptides_for_deeplc.csv.gz filter=lfs diff=lfs merge=lfs -text
+PXD010154/tables/to-ms2pip-snr-tables/grch_peptides_for_deeplc.csv.gz filter=lfs diff=lfs merge=lfs -text
