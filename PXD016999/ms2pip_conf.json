@@ -1,0 +1,22 @@
+{
+    "ms2pip": {
+        "ptm": [
+            "Oxidation,15.994915,opt,M",
+            "Carbamidomethyl,57.021464,opt,C",
+            "Acetyl,42.010565,opt,N-term",
+            "Deamidated,0.984016,opt,N",
+            "Deamidated,0.984016,opt,Q",
+            "TMT6plex,229.162932,opt,T",
+            "TMT6plex,229.162932,opt,S",
+            "TMT6plex,229.162932,opt,H",
+            "TMT6plex,229.162932,opt,N-term",
+            "TMT6plex,229.162932,opt,K",
+        ],
+        "model": "TMT",
+        "frag_method": "HCD",
+        "frag_error": 0.5,
+        "out": "csv",
+        "sptm": [],
+        "gptm": []
+    }
+}
