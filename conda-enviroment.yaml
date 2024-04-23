@@ -8,10 +8,6 @@ channels:
 dependencies:
   - biopython
   - Click
-  - deeplc
-  - ms2pip
-  - bioconda::pyteomics
-  - bioconda::pyopenms
   - tqdm
   - pyahocorasick
   - pandas
@@ -19,3 +15,11 @@ dependencies:
   - numpy
   - tensorflow
   - scipy
+  - seaborn
+  - wget
+  - python-wget
+  - pip:
+      - deeplc
+      - ms2pip
+      - pyteomics
+      - pyopenms
