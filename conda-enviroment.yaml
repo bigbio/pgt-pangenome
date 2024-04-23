@@ -19,6 +19,7 @@ dependencies:
   - seaborn
   - wget
   - python-wget
+  - pyarrow
   - pip:
       - deeplc
       - ms2pip
