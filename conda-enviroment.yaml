@@ -1,0 +1,21 @@
+# You can use this file to create a conda environment for this pipeline:
+#   conda env create -f environment.yml
+name: deeplc-env
+channels:
+  - openms
+  - conda-forge
+  - bioconda
+dependencies:
+  - biopython
+  - Click
+  - deeplc
+  - ms2pip
+  - bioconda::pyteomics
+  - bioconda::pyopenms
+  - tqdm
+  - pyahocorasick
+  - pandas
+  - matplotlib
+  - numpy
+  - tensorflow
+  - scipy
