@@ -7,7 +7,6 @@ It contains two methods:
 """
 import json
 from ftplib import FTP
-from typing import List
 
 import pandas as pd
 from ms2pip.ms2pipC import MS2PIP
@@ -355,11 +354,22 @@ def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, params: 
 
 @click.command("filter-ms2pip", help="Run the ms2pip filtering process to remove low-quality peptides.")
 @click.option("-p", "--peptide_file", type=str, required=True, help="Peptide sequence to be used for the ms2pip")
-@click.option("-f", "--folder_output", type=str, required=True, help="Output file after filtering ms2pip threshold")
+@click.option("-f", "--plots_output", type=str, required=True, help="Output folder for all plots filtering ms2pip threshold")
 @click.option("-o", "--output_file", type=str, required=True, help="Output file after filtering ms2pip threshold")
 @click.option("--number_aa", type=int, default=8, help="Minimum number of amino acids in the peptide sequence")
-def filter_ms2pip(peptide_file: str, folder_output: str, output_file: str, number_aa: int = 8):
-    data = pd.read_csv(peptide_file, sep=',')
+def filter_ms2pip(peptide_file: str, plots_output: str, output_file: str, number_aa: int = 8):
+
+    if peptide_file.endswith('.csv.gz'):
+        data = pd.read_csv(peptide_file, sep=",", compression='gzip')
+    elif peptide_file.endswith('.csv'):
+        data = pd.read_csv(peptide_file, sep=',')
+    elif peptide_file.endswith('.tsv.gz'):
+        data = pd.read_csv(peptide_file, sep="\t", compression='gzip')
+    elif peptide_file.endswith('.tsv'):
+        data = pd.read_csv(peptide_file, sep="\t")
+    else:
+        raise ValueError("The input file format is not supported.")
+
     print("Number from Previous Step and before filtering:", len(data))
 
     # Remove rows that the sequence_x length is less than 8 aa
@@ -387,7 +397,7 @@ def filter_ms2pip(peptide_file: str, folder_output: str, output_file: str, numbe
     plt.xlabel('SNR')
     plt.ylabel('Frequency')
     plt.legend()
-    plt.savefig(folder_output + "/signal_to_noise.png")
+    plt.savefig(plots_output + "/signal_to_noise.png")
 
     # Remove rows with y-ions and b-ions wrongly correlated
     data = data[data['pearsonr_Y'] > 0.1]
@@ -434,10 +444,10 @@ def filter_ms2pip(peptide_file: str, folder_output: str, output_file: str, numbe
     plt.ylabel('Frequency')
     plt.title('B and Y ion Pearson Correlations')
     plt.legend()
-    plt.savefig(folder_output + "/ms2pip_filtered_score.png")
+    plt.savefig(plots_output + "/ms2pip_filtered_score.png")
 
     data = data[data['corrected_dot_product'] > threshold_value_dp]
-    data.to_csv(folder_output + '/' + output_file, sep=',', index=False, compression='gzip')
+    data.to_csv(output_file, sep=',', index=False, compression='gzip')
 
 
 cli.add_command(create_mgf)
