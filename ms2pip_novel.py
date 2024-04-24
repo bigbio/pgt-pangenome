@@ -193,9 +193,6 @@ def create_mgf(cxt, peptide_file: str, mgf_file: str, mzml_path: str = None, loc
     df_peprec_dict = dict(sorted(df_peprec_dict.items(), key=lambda x: len(x[1]), reverse=True))
 
     spectra = []
-
-    count_files = 0  # count the number of files
-
     for ref_file, peptides in df_peprec_dict.items():
         print(ref_file)
         for mzml_file in file_list:
@@ -204,10 +201,7 @@ def create_mgf(cxt, peptide_file: str, mgf_file: str, mzml_path: str = None, loc
                 print(mzml_file)
                 spectra = read_spectra_from_mzml(local_file_path, peptides, spectra)
                 break
-        print("Number of spectra: {}".format(len(spectra)))
-        count_files += 1
-        if count_files == 20:
-            break
+        print("Number of spectra loaded: {}".format(len(spectra)))
 
     with open(mgf_file, 'w') as f:
         for spec in spectra:
@@ -284,8 +278,8 @@ def get_mgf_spectrum_properties(predictions, mgf_file):
 @click.option("--ms2pip_cpus", help="Number of CPUS to run ms2pip", required=False, default=4)
 @click.option("--filter_aa", help="Filter peptides with less than filter_aa amino acids", required=False, default=7)
 @click.pass_context
-def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, params: str, ms2pip_cpus: int = 4, filter_aa: int = 7):
-
+def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, params: str, ms2pip_cpus: int = 4,
+               filter_aa: int = 7):
     if '.gz' in peptide_file:
         original_df = pd.read_csv(peptide_file, sep=",", compression='gzip')
     else:
@@ -319,11 +313,11 @@ def run_ms2pip(cxt, peptide_file: str, mgf_file: str, output_file: str, params: 
 
 @click.command("filter-ms2pip", help="Run the ms2pip filtering process to remove low-quality peptides.")
 @click.option("-p", "--peptide_file", type=str, required=True, help="Peptide sequence to be used for the ms2pip")
-@click.option("-f", "--plots_output", type=str, required=True, help="Output folder for all plots filtering ms2pip threshold")
+@click.option("-f", "--plots_output", type=str, required=True,
+              help="Output folder for all plots filtering ms2pip threshold")
 @click.option("-o", "--output_file", type=str, required=True, help="Output file after filtering ms2pip threshold")
 @click.option("--number_aa", type=int, default=8, help="Minimum number of amino acids in the peptide sequence")
 def filter_ms2pip(peptide_file: str, plots_output: str, output_file: str, number_aa: int = 8):
-
     if peptide_file.endswith('.csv.gz'):
         data = pd.read_csv(peptide_file, sep=",", compression='gzip')
     elif peptide_file.endswith('.csv'):
