@@ -154,12 +154,9 @@ def compute_number_misscleavages(original_df: pd.DataFrame) -> pd.DataFrame:
 @click.option("--peptide_file", help="Peptide file with observations in csv", required=True)
 @click.option("--mgf_file", help="The mgf to be created", required=True)
 @click.option("--mzml_path", help="the path with all the mzMLs", required=False)
-@click.option("--ftp_server", help="The FTP server to download the files", required=False)
-@click.option("--ftp_path", help="The FTP path to download the files", required=False)
 @click.option("--local_cache_path", help="The local path to save the files", required=False)
 @click.pass_context
-def create_mgf(cxt, peptide_file: str, mgf_file: str, mzml_path: str = None, ftp_server: str = None,
-               ftp_path: str = None, local_cache_path: str = './'):
+def create_mgf(cxt, peptide_file: str, mgf_file: str, mzml_path: str = None, local_cache_path: str = './'):
     """
     peptide_file: Peptide file with observations in csv
     mgf_file: The mgf to be created
@@ -168,14 +165,15 @@ def create_mgf(cxt, peptide_file: str, mgf_file: str, mzml_path: str = None, ftp
     ftp_path: The FTP path to download the files
     local_cache_path: The local path to save the files
     """
-    if mzml_path is None and (ftp_server is None or ftp_path is None):
-        raise ValueError("One of the following parameters must be provided: mzml_path, ftp_server, ftp_path, "
-                         "local_cache_path")
+    if mzml_path is None:
+        raise ValueError("The mzml path is required")
 
     if '.gz' in peptide_file:
         original_df = pd.read_csv(peptide_file, sep=",", compression='gzip')
     else:
         original_df = pd.read_csv(peptide_file, sep=",")
+
+    print("The number of peptides in the file: ", len(original_df))
 
     original_df = compute_number_misscleavages(original_df)  # add number_misscleavages column
     df_peprec = original_df[["usi", "seq", "modifications", "charge", 'scan_number', 'reference_file_name']]
@@ -184,22 +182,9 @@ def create_mgf(cxt, peptide_file: str, mgf_file: str, mzml_path: str = None, ftp
     # Connect to the FTP server with an anonymous account
     file_list = []
 
-    if ftp_server is not None and ftp_path is not None:
-        use_ftp = True
-    else:
-        use_ftp = False
-
-    if use_ftp:
-        with FTP(ftp_server) as ftp:
-            ftp.login()
-
-            # List files in the remote path
-            file_list = ftp_list_files(ftp, ftp_path)
-            print(f"Files in {ftp_path}:")
-    else:
-        # read files with mzML extension from filesystem
-        file_list = [f for f in os.listdir(mzml_path) if f.endswith(".mzML")]
-        print(f"Files in {mzml_path}:")
+    # read files with mzML extension from filesystem
+    file_list = [f for f in os.listdir(mzml_path) if f.endswith(".mzML")]
+    print(f"Files in {mzml_path}:")
 
     # convert df_peprec to a dictionary group by reference_file_name
     df_peprec_dict = df_peprec.groupby('reference_file_name').apply(lambda x: x.to_dict(orient='records')).to_dict()
@@ -210,39 +195,19 @@ def create_mgf(cxt, peptide_file: str, mgf_file: str, mzml_path: str = None, ftp
     spectra = []
 
     count_files = 0  # count the number of files
-    if use_ftp:
-        with FTP(ftp_server) as ftp:
-            ftp.login()
-            for ref_file, peptides in df_peprec_dict.items():
-                print("Reading File: {}".format(ref_file))
-                for mzml_file in file_list:
-                    if ref_file in mzml_file:
-                        name = mzml_file.split()[8]
-                        remote_file_path = os.path.join(ftp_path, name)
-                        local_file_path = os.path.join(local_cache_path, name)
-                        # Download the file
-                        if not os.path.exists(local_file_path):
-                            download_file_with_progress(ftp, remote_file_path, local_file_path)
-                        print(mzml_file)
-                        spectra = read_spectra_from_mzml(local_file_path, peptides, spectra)
-                        break
-                    print("Number of spectra: {}".format(len(spectra)))
-                count_files += 1
-                if count_files == 20:
-                    break
-    else:
-        for ref_file, peptides in df_peprec_dict.items():
-            print(ref_file)
-            for mzml_file in file_list:
-                if ref_file in mzml_file:
-                    local_file_path = os.path.join(mzml_path, mzml_file)
-                    print(mzml_file)
-                    spectra = read_spectra_from_mzml(local_file_path, peptides, spectra)
-                    break
-            print("Number of spectra: {}".format(len(spectra)))
-            count_files += 1
-            if count_files == 20:
+
+    for ref_file, peptides in df_peprec_dict.items():
+        print(ref_file)
+        for mzml_file in file_list:
+            if ref_file in mzml_file:
+                local_file_path = os.path.join(mzml_path, mzml_file)
+                print(mzml_file)
+                spectra = read_spectra_from_mzml(local_file_path, peptides, spectra)
                 break
+        print("Number of spectra: {}".format(len(spectra)))
+        count_files += 1
+        if count_files == 20:
+            break
 
     with open(mgf_file, 'w') as f:
         for spec in spectra:
