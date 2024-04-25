@@ -85,6 +85,7 @@ def run_ms2pip_on_mgf(peptide_file: pd.DataFrame, mgf_file: str, params: dict, n
     ms2pip = MS2PIP(pep_file=peptide_file, spec_file=mgf_file, params=params, return_results=True, num_cpu=num_cpus,
                     compute_correlations=True)
     predictions = ms2pip.run()
+    print("Number of predictions: ", len(predictions))
 
     predictions.replace(np.nan, 0.01, inplace=True)
 
@@ -100,6 +101,8 @@ def run_ms2pip_on_mgf(peptide_file: pd.DataFrame, mgf_file: str, params: dict, n
 
     ms2pip = MS2PIP(pep_file=peptide_file, spec_file=mgf_file, params=params, return_results=True, num_cpu=num_cpus)
     predictions_ions = ms2pip.run()
+    print("Number of predictions ions: ", len(predictions_ions))
+
     grouped = predictions_ions.groupby(['spec_id', 'ion']).size().reset_index(name='count')
 
     # Pivot the table to have 'A' and 'B' as columns
@@ -147,6 +150,7 @@ def compute_number_misscleavages(original_df: pd.DataFrame) -> pd.DataFrame:
     if 'number_misscleavages' not in original_df.columns:
         original_df['number_misscleavages'] = original_df.apply(lambda x: x['seq'].count('K') + x['seq'].count('R'),
                                                                 axis=1)
+    print("Number of peptides with misscleavages: ", len(original_df[original_df['number_misscleavages'] > 0]))
     return original_df
 
 
@@ -259,6 +263,7 @@ def get_mgf_spectrum_properties(predictions, mgf_file):
             spectra_properties.append({'spec_id': usi, 'number_peaks': number_peaks,
                                        'signal_to_noise': signal_to_noise,
                                        'diff_highest_lowest': diff_highest_lowest})
+            print("Processing spectrum: {}, Number of peaks: {}, Signal to noise: {}, Difference between highest and lowest peaks: {}".format(usi, number_peaks, signal_to_noise, diff_highest_lowest))
 
             try:
                 spectrum = next(spectra)
