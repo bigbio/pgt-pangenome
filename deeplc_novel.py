@@ -66,6 +66,8 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     else:
         df_gca = pd.read_csv(novel_peptide_file, sep=",")
 
+    df_gca = df_gca[(df_gca['position'] == 'non-canonical') | (df_gca['flanking_ions_support'] == 'YES')]
+
     df_gca.fillna("", inplace=True)
     df_gca.index = df_gca["seq"] + "+" + df_gca["modifications"]
 
