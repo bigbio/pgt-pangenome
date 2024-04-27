@@ -75,6 +75,8 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     # than one SampleID. In this case, we use reference_file_name to identify the SampleID.
     if 'sample_id' not in df.columns:
         df['sample_id'] = df['reference_file_name']
+    if 'sample_id' not in df_gca.columns:
+        df_gca['sample_id'] = df_gca['reference_file_name']
 
     for name, sub_df in tqdm(df.groupby("sample_id")):
         sub_df_gca = df_gca[df_gca["sample_id"] == name]
