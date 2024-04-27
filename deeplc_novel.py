@@ -83,7 +83,7 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
 
         df_pred = sub_df.drop_duplicates(["seq", "modifications"], keep="first")
         df_first = sub_df.sort_values("tr").drop_duplicates(["seq", "modifications"])
-        df_first.sort_values("Posterior error probability", inplace=True)
+        df_first.sort_values("posterior_error_probability", inplace=True)
 
         if len(df_first.index) > max_inst_train:
             df_first = df_first.iloc[0:max_inst_train, :]
