@@ -57,7 +57,6 @@ def cli():
 def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_folder: str, output_file_95perc: str,
                   output_file_99perc: str, num_cores: int, verbose: bool = False, num_samples: int = 10000, group_files: int = 0):
     all_gca = []
-    max_inst_train = 10000
 
     # Reading both files
     if ".gz" in canonical_peptide_file:
@@ -118,9 +117,6 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
         # Use the best score grch modified peptide to train
         sub_df.sort_values("posterior_error_probability", inplace=True)
         sub_df_unique = sub_df.drop_duplicates(["seq", "modifications"])
-
-        if len(sub_df_unique.index) > max_inst_train:
-            sub_df_unique = sub_df_unique.iloc[0:max_inst_train, :]
 
         if num_samples < len(sub_df_unique.index):
             sub_df_unique = sub_df_unique.iloc[0:num_samples, :]
