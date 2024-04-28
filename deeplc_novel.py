@@ -7,6 +7,7 @@ peptides with an error percentile lower than 99%, and the 95th percentile file c
 
 @author: Yasset Perez-Riverol (https://github.com/ypriverol)
 """
+import hashlib
 
 import click
 # specific packages
@@ -52,8 +53,9 @@ def cli():
 @click.option("-c", "--num_cores", type=int, help="The number of cores to use.", default=5)
 @click.option("-v", "--verbose", is_flag=True, help="Print verbose output.")
 @click.option("-s", "--num_samples",type=int, help="The number of samples to use.", default=10000)
+@click.option("-gg", "--group_files", type=int, help="Group files by SampleID", default=0)
 def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_folder: str, output_file_95perc: str,
-                  output_file_99perc: str, num_cores: int, verbose: bool = False, num_samples: int = 10000):
+                  output_file_99perc: str, num_cores: int, verbose: bool = False, num_samples: int = 10000, group_files: int = 0):
     all_gca = []
     max_inst_train = 10000
 
@@ -92,8 +94,26 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     total_samples = len(df["sample_id"].unique())
     print(f"Total number of samples: {total_samples} \n")
 
-    for name, sub_df in tqdm(df.groupby("sample_id")):
-        sub_df_gca = df_gca[df_gca["sample_id"] == name]
+    if group_files > 0:
+        def map_to_group(sample_id, num_groups):
+            # Calculate SHA-256 hash
+            hash_obj = hashlib.sha256(sample_id.encode())
+            hash_value = int(hash_obj.hexdigest(), 16)
+
+            # Map hash to group number (0 to num_groups - 1)
+            group_number = hash_value % num_groups
+
+            return group_number
+
+        # Apply the function to the 'Column2' to create a new column 'Group'
+        df['Group'] = df['sample_id'].apply(lambda x: map_to_group(x, group_files))
+        df_gca['Group'] = df_gca['sample_id'].apply(lambda x: map_to_group(x, group_files))
+    else:
+        df['Group'] = df['sample_id']
+        df_gca['Group'] = df_gca['sample_id']
+
+    for name, sub_df in tqdm(df.groupby("Group")):
+        sub_df_gca = df_gca[df_gca["Group"] == name]
 
         # Use the best score grch modified peptide to train
         sub_df.sort_values("posterior_error_probability", inplace=True)
