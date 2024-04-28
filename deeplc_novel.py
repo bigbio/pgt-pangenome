@@ -47,8 +47,9 @@ def cli():
               help="The name of the output file for the 99th percentile.", required=True)
 @click.option("-c", "--num_cores", type=int, help="The number of cores to use.", default=5)
 @click.option("-v", "--verbose", is_flag=True, help="Print verbose output.")
+@click.option("-s", "--num_samples",type=int, help="The number of samples to use.", default=10000)
 def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_folder: str, output_file_95perc: str,
-                  output_file_99perc: str, num_cores: int , verbose: bool = False):
+                  output_file_99perc: str, num_cores: int , verbose: bool = False, num_samples: int = 10000):
     all_gca = []
     max_inst_train = 10000
 
@@ -96,6 +97,9 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
 
         if len(sub_df_unique.index) > max_inst_train:
             sub_df_unique = sub_df_unique.iloc[0:max_inst_train, :]
+
+        if num_samples < len(sub_df_unique.index):
+            sub_df_unique = sub_df_unique.iloc[0:num_samples, :]
 
         dlc = DeepLC(
             deeplc_retrain=True,
