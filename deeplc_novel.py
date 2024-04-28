@@ -80,10 +80,10 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
 
     # Create indexes for both dataframes
     df.fillna("", inplace=True)
-    df.index = df["seq"] + "+" + df["modifications"]
+    df.index = df['sample_id'] + "+" + df["seq"] + "+" + df["modifications"]
 
     df_gca.fillna("", inplace=True)
-    df_gca.index = df_gca["seq"] + "+" + df_gca["modifications"]
+    df_gca.index = df_gca['sample_id'] + "+" + df_gca["seq"] + "+" + df_gca["modifications"]
 
     sample_count = 0 # Counter for the number of samples processed
     # count total number of samples
