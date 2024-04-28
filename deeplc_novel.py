@@ -73,9 +73,6 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     ## Only use peptides that passed spectrumAI filtering
     df_gca = df_gca[(df_gca['position'] == 'non-canonical') | (df_gca['flanking_ions_support'] == 'YES')]
 
-    ## Sort both dataframes
-    df.sort_values("posterior_error_probability", inplace=True)
-    df_gca.sort_values("posterior_error_probability", inplace=True)
     df = df[df["tr"] < 25000]
 
     # Create indexes for both dataframes
@@ -93,12 +90,12 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     for name, sub_df in tqdm(df.groupby("sample_id")):
         sub_df_gca = df_gca[df_gca["sample_id"] == name]
 
-        df_pred = sub_df.drop_duplicates(["seq", "modifications"], keep="first")
-        df_first = sub_df.sort_values("tr").drop_duplicates(["seq", "modifications"])
-        df_first.sort_values("posterior_error_probability", inplace=True)
+        # Use the best score grch modified peptide to train
+        sub_df.sort_values("posterior_error_probability", inplace=True)
+        sub_df_unique = sub_df.drop_duplicates(["seq", "modifications"])
 
-        if len(df_first.index) > max_inst_train:
-            df_first = df_first.iloc[0:max_inst_train, :]
+        if len(sub_df_unique.index) > max_inst_train:
+            sub_df_unique = sub_df_unique.iloc[0:max_inst_train, :]
 
         dlc = DeepLC(
             deeplc_retrain=True,
@@ -107,26 +104,19 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
         )
 
         # Perform calibration, make predictions and calculate metrics
-        dlc.calibrate_preds(seq_df=df_first)
-        preds_calib = dlc.make_preds(seq_df=df_first)
-
-        df_first["preds_tr"] = preds_calib
-        df_first["error"] = df_first["tr"] - df_first["preds_tr"]
-        df_first["abserror"] = abs(df_first["error"])
+        dlc.calibrate_preds(seq_df=sub_df_unique)
 
         sub_df_gca["preds_tr"] = dlc.make_preds(seq_df=sub_df_gca)
         sub_df_gca["error"] = sub_df_gca["tr"] - sub_df_gca["preds_tr"]
         sub_df_gca["abserror"] = abs(sub_df_gca["error"])
         sub_df_gca["error_percentile"] = sub_df_gca["abserror"].apply(
-            lambda x: percentileofscore(df_first["abserror"], x)
+            lambda x: percentileofscore(sub_df_gca["abserror"], x)
         )
         all_gca.append(sub_df_gca)
         sample_count += 1
         print(f"\nSample {name} done." + " % samples processed = " + str(round(sample_count / total_samples * 100, 4)) + "%" + " Number of Canonical PSMs: " + str(len(sub_df.index)) + " Number of GCA PSMs: " + str(len(sub_df_gca.index)), end="\n", flush=True) # Count samples: " + str(sample_count))
 
     all_gca_df = pd.concat(all_gca)
-
-    # In[ ]:
 
     plt.scatter(
         all_gca_df["tr"],
