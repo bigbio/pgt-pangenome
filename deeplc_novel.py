@@ -49,7 +49,7 @@ def cli():
 @click.option("-v", "--verbose", is_flag=True, help="Print verbose output.")
 @click.option("-s", "--num_samples",type=int, help="The number of samples to use.", default=10000)
 def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_folder: str, output_file_95perc: str,
-                  output_file_99perc: str, num_cores: int , verbose: bool = False, num_samples: int = 10000):
+                  output_file_99perc: str, num_cores: int, verbose: bool = False, num_samples: int = 10000):
     all_gca = []
     max_inst_train = 10000
 
@@ -88,7 +88,7 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     total_samples = len(df["sample_id"].unique())
     print(f"Total number of samples: {total_samples} \n")
 
-    for name, sub_df in tqdm(df.groupby("sample_id")):
+    for name, sub_df in df.groupby("sample_id"):
         sub_df_gca = df_gca[df_gca["sample_id"] == name]
 
         # Use the best score grch modified peptide to train
