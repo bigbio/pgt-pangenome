@@ -45,8 +45,9 @@ def cli():
               help="The name of the output file for the 95th percentile.", required=True)
 @click.option("-g", "--output_file_99perc", type=click.Path(),
               help="The name of the output file for the 99th percentile.", required=True)
+@click.option("-c", "--num_cores", type=int, help="The number of cores to use.", default=5)
 def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_folder: str, output_file_95perc: str,
-                  output_file_99perc: str):
+                  output_file_99perc: str, num_cores: int):
     all_gca = []
     max_inst_train = 10000
 
@@ -91,7 +92,7 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
         dlc = DeepLC(
             deeplc_retrain=True,
             n_epochs=20,
-            n_jobs=5,
+            n_jobs=num_cores,
         )
 
         # Perform calibration, make predictions and calculate metrics
