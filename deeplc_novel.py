@@ -46,8 +46,9 @@ def cli():
 @click.option("-g", "--output_file_99perc", type=click.Path(),
               help="The name of the output file for the 99th percentile.", required=True)
 @click.option("-c", "--num_cores", type=int, help="The number of cores to use.", default=5)
+@click.option("-v", "--verbose", is_flag=True, help="Print verbose output.")
 def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_folder: str, output_file_95perc: str,
-                  output_file_99perc: str, num_cores: int):
+                  output_file_99perc: str, num_cores: int , verbose: bool = False):
     all_gca = []
     max_inst_train = 10000
 
@@ -92,7 +93,7 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
         dlc = DeepLC(
             deeplc_retrain=True,
             n_epochs=20,
-            n_jobs=num_cores,
+            n_jobs=num_cores,verbose=verbose,
         )
 
         # Perform calibration, make predictions and calculate metrics
@@ -110,6 +111,7 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
             lambda x: percentileofscore(df_first["abserror"], x)
         )
         all_gca.append(sub_df_gca)
+        print(f"Sample {name} done.")
 
     all_gca_df = pd.concat(all_gca)
 
