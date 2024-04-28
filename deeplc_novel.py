@@ -85,6 +85,7 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     df_gca.fillna("", inplace=True)
     df_gca.index = df['sample_id'] + df_gca["seq"] + "+" + df_gca["modifications"]
 
+    sample_count = 0 # Counter for the number of samples processed
     for name, sub_df in tqdm(df.groupby("sample_id")):
         sub_df_gca = df_gca[df_gca["sample_id"] == name]
 
@@ -116,7 +117,8 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
             lambda x: percentileofscore(df_first["abserror"], x)
         )
         all_gca.append(sub_df_gca)
-        print(f"Sample {name} done.")
+        sample_count += 1
+        print(f"Sample {name} done." + "Count samples: " + str(sample_count))
 
     all_gca_df = pd.concat(all_gca)
 
