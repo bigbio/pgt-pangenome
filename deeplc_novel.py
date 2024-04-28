@@ -52,26 +52,16 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     all_gca = []
     max_inst_train = 10000
 
+    # Reading both files
     if ".gz" in canonical_peptide_file:
         df = pd.read_csv(canonical_peptide_file, sep=",",compression="gzip")
     else:
         df = pd.read_csv(canonical_peptide_file, sep=",")
 
-    df.fillna("", inplace=True)
-    df.index = df["seq"] + "+" + df["modifications"]
-
-    df.sort_values("posterior_error_probability", inplace=True)
-    df = df[df["tr"] < 25000]
-
     if ".gz" in novel_peptide_file:
         df_gca = pd.read_csv(novel_peptide_file, sep=",",compression="gzip")
     else:
         df_gca = pd.read_csv(novel_peptide_file, sep=",")
-
-    df_gca = df_gca[(df_gca['position'] == 'non-canonical') | (df_gca['flanking_ions_support'] == 'YES')]
-
-    df_gca.fillna("", inplace=True)
-    df_gca.index = df_gca["seq"] + "+" + df_gca["modifications"]
 
     # In LFQ experiments, every PSM is associated with a SampleID but if is a TMT experiment, then each PSM is associated with more
     # than one SampleID. In this case, we use reference_file_name to identify the SampleID.
@@ -79,6 +69,21 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
         df['sample_id'] = df['reference_file_name']
     if 'sample_id' not in df_gca.columns:
         df_gca['sample_id'] = df_gca['reference_file_name']
+
+    ## Only use peptides that passed spectrumAI filtering
+    df_gca = df_gca[(df_gca['position'] == 'non-canonical') | (df_gca['flanking_ions_support'] == 'YES')]
+
+    ## Sort both dataframes
+    df.sort_values("posterior_error_probability", inplace=True)
+    df_gca.sort_values("posterior_error_probability", inplace=True)
+    df = df[df["tr"] < 25000]
+
+    # Create indexes for both dataframes
+    df.fillna("", inplace=True)
+    df.index = df['sample_id'] + df["seq"] + "+" + df["modifications"]
+
+    df_gca.fillna("", inplace=True)
+    df_gca.index = df['sample_id'] + df_gca["seq"] + "+" + df_gca["modifications"]
 
     for name, sub_df in tqdm(df.groupby("sample_id")):
         sub_df_gca = df_gca[df_gca["sample_id"] == name]
