@@ -7,6 +7,7 @@ peptides with an error percentile lower than 99%, and the 95th percentile file c
 
 @author: Yasset Perez-Riverol (https://github.com/ypriverol)
 """
+from multiprocessing import cpu_count, Pool
 
 import click
 # specific packages
@@ -33,6 +34,39 @@ CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
 @click.group(context_settings=CONTEXT_SETTINGS)
 def cli():
     pass
+
+
+def process_group(args):
+    name, sub_df, df_gca, max_inst_train, num_samples, num_cores, verbose = args
+
+    # Process group logic
+    sub_df_gca = df_gca[df_gca["sample_id"] == name]
+    sub_df.sort_values("posterior_error_probability", inplace=True)
+    sub_df_unique = sub_df.drop_duplicates(["seq", "modifications"])
+
+    if len(sub_df_unique.index) > max_inst_train:
+        sub_df_unique = sub_df_unique.iloc[0:max_inst_train, :]
+
+    if num_samples < len(sub_df_unique.index):
+        sub_df_unique = sub_df_unique.iloc[0:num_samples, :]
+
+    dlc = DeepLC(
+        deeplc_retrain=True,
+        n_epochs=20,
+        n_jobs=num_cores,
+        verbose=verbose,
+    )
+
+    # Calibrate, predict, and calculate metrics
+    dlc.calibrate_preds(seq_df=sub_df_unique)
+    sub_df_gca["preds_tr"] = dlc.make_preds(seq_df=sub_df_gca)
+    sub_df_gca["error"] = sub_df_gca["tr"] - sub_df_gca["preds_tr"]
+    sub_df_gca["abserror"] = abs(sub_df_gca["error"])
+    sub_df_gca["error_percentile"] = sub_df_gca["abserror"].apply(
+        lambda x: percentileofscore(sub_df_gca["abserror"], x)
+    )
+
+    return name, sub_df_gca, sub_df_unique
 
 
 @click.command("filter_deeplc", help="Run the ms2pip filtering process to remove low-quality peptides.")
@@ -88,39 +122,56 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     total_samples = len(df["sample_id"].unique())
     print(f"Total number of samples: {total_samples} \n")
 
-    for name, sub_df in tqdm(df.groupby("sample_id")):
-        sub_df_gca = df_gca[df_gca["sample_id"] == name]
+    # Determine number of available CPU cores
+    num_processes = cpu_count()
 
-        # Use the best score grch modified peptide to train
-        sub_df.sort_values("posterior_error_probability", inplace=True)
-        sub_df_unique = sub_df.drop_duplicates(["seq", "modifications"])
+    # Create a list of arguments for each group
+    groups = [(name, sub_df, df_gca, max_inst_train, num_samples, num_cores, verbose)
+              for name, sub_df in df.groupby("sample_id")]
 
-        if len(sub_df_unique.index) > max_inst_train:
-            sub_df_unique = sub_df_unique.iloc[0:max_inst_train, :]
+    # Create a pool of worker processes
+    with Pool(num_processes) as pool:
+        results = list(tqdm(pool.imap(process_group, groups), total=len(groups)))
 
-        if num_samples < len(sub_df_unique.index):
-            sub_df_unique = sub_df_unique.iloc[0:num_samples, :]
+    # Aggregate results
+    all_gca_df = [result[1] for result in results]
+    sample_count = len(all_gca)
 
-        dlc = DeepLC(
-            deeplc_retrain=True,
-            n_epochs=20,
-            n_jobs=num_cores,verbose=verbose,
-        )
+    print(f"\nTotal samples processed: {sample_count}")
 
-        # Perform calibration, make predictions and calculate metrics
-        dlc.calibrate_preds(seq_df=sub_df_unique)
-
-        sub_df_gca["preds_tr"] = dlc.make_preds(seq_df=sub_df_gca)
-        sub_df_gca["error"] = sub_df_gca["tr"] - sub_df_gca["preds_tr"]
-        sub_df_gca["abserror"] = abs(sub_df_gca["error"])
-        sub_df_gca["error_percentile"] = sub_df_gca["abserror"].apply(
-            lambda x: percentileofscore(sub_df_gca["abserror"], x)
-        )
-        all_gca.append(sub_df_gca)
-        sample_count += 1
-        print(f"\nSample {name} done." + " % samples processed = " + str(round(sample_count / total_samples * 100, 4)) + "%" + " Number of Canonical PSMs: " + str(len(sub_df.index)) + " Number of GCA PSMs: " + str(len(sub_df_gca.index)), end="\n", flush=True) # Count samples: " + str(sample_count))
-
-    all_gca_df = pd.concat(all_gca)
+    # for name, sub_df in tqdm(df.groupby("sample_id")):
+    #     sub_df_gca = df_gca[df_gca["sample_id"] == name]
+    #
+    #     # Use the best score grch modified peptide to train
+    #     sub_df.sort_values("posterior_error_probability", inplace=True)
+    #     sub_df_unique = sub_df.drop_duplicates(["seq", "modifications"])
+    #
+    #     if len(sub_df_unique.index) > max_inst_train:
+    #         sub_df_unique = sub_df_unique.iloc[0:max_inst_train, :]
+    #
+    #     if num_samples < len(sub_df_unique.index):
+    #         sub_df_unique = sub_df_unique.iloc[0:num_samples, :]
+    #
+    #     dlc = DeepLC(
+    #         deeplc_retrain=True,
+    #         n_epochs=20,
+    #         n_jobs=num_cores,verbose=verbose,
+    #     )
+    #
+    #     # Perform calibration, make predictions and calculate metrics
+    #     dlc.calibrate_preds(seq_df=sub_df_unique)
+    #
+    #     sub_df_gca["preds_tr"] = dlc.make_preds(seq_df=sub_df_gca)
+    #     sub_df_gca["error"] = sub_df_gca["tr"] - sub_df_gca["preds_tr"]
+    #     sub_df_gca["abserror"] = abs(sub_df_gca["error"])
+    #     sub_df_gca["error_percentile"] = sub_df_gca["abserror"].apply(
+    #         lambda x: percentileofscore(sub_df_gca["abserror"], x)
+    #     )
+    #     all_gca.append(sub_df_gca)
+    #     sample_count += 1
+    #     print(f"\nSample {name} done." + " % samples processed = " + str(round(sample_count / total_samples * 100, 4)) + "%" + " Number of Canonical PSMs: " + str(len(sub_df.index)) + " Number of GCA PSMs: " + str(len(sub_df_gca.index)), end="\n", flush=True) # Count samples: " + str(sample_count))
+    #
+    # all_gca_df = pd.concat(all_gca)
 
     plt.scatter(
         all_gca_df["tr"],
