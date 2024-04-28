@@ -17,8 +17,12 @@ from deeplc import DeepLC
 from matplotlib import pyplot as plt
 
 # Default
-
-tf.get_logger().setLevel("INFO")
+import logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
+logging.getLogger('deeplc').setLevel(logging.ERROR)
+logging.getLogger('tensorflow').setLevel(logging.ERROR)
+tf.get_logger().setLevel(logging.ERROR)
 
 from tqdm import tqdm
 import warnings
