@@ -88,7 +88,7 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     total_samples = len(df["sample_id"].unique())
     print(f"Total number of samples: {total_samples} \n")
 
-    for name, sub_df in df.groupby("sample_id"):
+    for name, sub_df in tqdm(df.groupby("sample_id")):
         sub_df_gca = df_gca[df_gca["sample_id"] == name]
 
         # Use the best score grch modified peptide to train
