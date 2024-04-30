@@ -153,6 +153,8 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     )
     plt.plot([500, 6500], [500, 6500], c="grey")
     plt.colorbar()
+    plt.xlabel("Experimental RT (min)")
+    plt.ylabel("Predicted RT (min)")
     plt.savefig(output_folder + "/all_predictions.png")
     plt.close()
 
@@ -166,6 +168,7 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     plt.scatter(all_gca_df["error_percentile"], all_gca_df["error"], s=1)
     plt.vlines(99, -4000, 4000, color="black", label="99th percentile")
     plt.vlines(95, -4000, 4000, color="grey", label="95th percentile")
+    plt.legend()
     plt.savefig(output_folder + "/all_error_perc.png")
     plt.close()
 
