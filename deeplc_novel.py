@@ -134,9 +134,10 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
 
         sub_df_gca["preds_tr"] = dlc.make_preds(seq_df=sub_df_gca)
         sub_df_gca["error"] = sub_df_gca["tr"] - sub_df_gca["preds_tr"]
-        sub_df_gca["abserror"] = abs(sub_df_gca["error"])
-        sub_df_gca["error_percentile"] = sub_df_gca["abserror"].apply(
-            lambda x: percentileofscore(sub_df_gca["abserror"], x)
+        sub_df_gca["absolute error"] = abs(sub_df_gca["error"])
+        sub_df_gca["relative error"] = sub_df_gca["absolute error"] / sub_df_gca["tr"]
+        sub_df_gca["relative_error_percentile"] = sub_df_gca["relative error"].apply(
+            lambda x: percentileofscore(sub_df_gca["relative error"], x)
         )
         all_gca.append(sub_df_gca)
         number_groups += 1
@@ -149,7 +150,7 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
         all_gca_df["preds_tr"],
         s=3,
         alpha=0.1,
-        c=all_gca_df["error_percentile"],
+        c=all_gca_df["relative_error_percentile"],
     )
     plt.plot([500, 6500], [500, 6500], c="grey")
     plt.colorbar()
@@ -158,14 +159,14 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     plt.savefig(output_folder + "/all_predictions.png")
     plt.close()
 
-    plt.hist(all_gca_df["error_percentile"], bins=100)
-    plt.vlines(99, 0, 800, color="black", label="99th percentile")
-    plt.vlines(95, 0, 800, color="grey", label="95th percentile")
+    plt.hist(all_gca_df["relative_error_percentile"], bins=100)
+    plt.vlines(99, 0, 1, color="black", label="99th percentile")
+    plt.vlines(95, 0, 1, color="grey", label="95th percentile")
     plt.legend()
     plt.savefig(output_folder + "/all_error_dist.png")
     plt.close()
 
-    plt.scatter(all_gca_df["error_percentile"], all_gca_df["error"], s=1)
+    plt.scatter(all_gca_df["relative_error_percentile"], all_gca_df["error"], s=1)
     plt.vlines(99, -4000, 4000, color="black", label="99th percentile")
     plt.vlines(95, -4000, 4000, color="grey", label="95th percentile")
     plt.legend()
@@ -173,7 +174,7 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     plt.close()
 
     plt.scatter(
-        all_gca_df["error_percentile"],
+        all_gca_df["relative_error_percentile"],
         all_gca_df["posterior_error_probability"],
         s=4,
         alpha=0.1,
@@ -184,8 +185,8 @@ def filter_deeplc(canonical_peptide_file: str, novel_peptide_file: str, output_f
     plt.savefig(output_folder + "/all_error_perc_pep.png")
     plt.close()
 
-    all_gca_df[all_gca_df["error_percentile"] < 95].to_csv(output_file_95perc, index=False,compression="gzip")
-    all_gca_df[all_gca_df["error_percentile"] < 99].to_csv(output_file_99perc, index=False,compression="gzip")
+    all_gca_df[all_gca_df["relative_error_percentile"] < 95].to_csv(output_file_95perc, index=False,compression="gzip")
+    all_gca_df[all_gca_df["relative_error_percentile"] < 99].to_csv(output_file_99perc, index=False,compression="gzip")
 
 
 cli.add_command(filter_deeplc)
