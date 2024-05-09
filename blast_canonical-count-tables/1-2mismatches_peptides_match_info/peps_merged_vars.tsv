@@ -1,5 +1,5 @@
 Peptide	num_unique_peptides	num_samples	num_tissues	variants	genes	overlapping_peptides	tissues
-CPDYTCPITFSSPADITILLDGSASVGSHNFDTTKHFAKR	3	75	19	R>H	C1orf116	KCPDYTCPITFSSPADITILLDGSASVGSHNFDTTKHFAK,CPDYTCPITFSSPADITILLDGSASVGSHNFDTTKHFAKR,CPDYTCPITFSSPADITILLDGSASVGSHNFDTTKHFAK	skin - not sun exposed (suprapubic),pancreas,heart left ventricle,minor salivary gland,uterus,sigmoid colon,stomach,vagina,thyroid gland,esophagus mucosa,adrenal gland,heart atrial appendage,spleen,skin - sun exposed (lower leg),aorta,esophagus gastroesophageal junction,skeletal muscle tissue,lung,tibial nerve
+CPDYTCPITFSSPADITILLDGSASVGSHNFDTTKHFAKR	3	1	13	R>H	C1orf116	KCPDYTCPITFSSPADITILLDGSASVGSHNFDTTKHFAK,CPDYTCPITFSSPADITILLDGSASVGSHNFDTTKHFAKR,CPDYTCPITFSSPADITILLDGSASVGSHNFDTTKHFAK	adrenal gland,sigmoid colon,heart atrial appendage,pancreas,esophagus gastroesophageal junction,stomach,ovary,vagina,thyroid gland,minor salivary gland,heart left ventricle,lung,tibial nerve
 Peptide	num_unique_peptides	num_samples	num_tissues	variants	genes	overlapping_peptides	tissues
 DTLMISRTPEVTCVVVDVSHEDPEVQFNWYVDGMEVHNAK	3	20	1	V>M	C1orf116	DTLMISRTPEVTCVVVDVSHEDPEVQFNWYVDGMEVHNAK,TPEVTCVVVDVSHEDPEVQFNWYVDGMEVHNAK,TPEVTCVVVDVSHEDPEVQFNWYVDGMEVHNAKTK	pituitary hypophysis
 Peptide	num_unique_peptides	num_samples	num_tissues	variants	genes	overlapping_peptides	tissues
