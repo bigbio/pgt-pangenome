@@ -11,8 +11,8 @@ mzmls_path = "mzmls/"
 sdrf_010154 = pd.read_table("PXD010154/sdrf_parquet/PXD010154.sdrf.tsv")
 
 # Read the SDRF files
-sdrf_016999_first = pd.read_table("PXD016999/sdrf_parquet/PXD016999-first-instrument.sdrf.tsv")
-sdrf_016999_second = pd.read_table("PXD016999/sdrf_parquet/PXD016999-second-instrument.sdrf.tsv")
+sdrf_016999_first = pd.read_table("PXD016999/PXD016999-first-instrument.sdrf.tsv")
+sdrf_016999_second = pd.read_table("PXD016999/PXD016999-second-instrument.sdrf.tsv")
 sdrf_016999 = pd.concat([sdrf_016999_first, sdrf_016999_second], axis=0, ignore_index=True)
 
 
@@ -51,7 +51,7 @@ def plot_Spectra(RAWs_PATH, sdrf_info, path):
     tissue_MS = dict()
     for tissue, mzmls in tqdm(sdrf_info[4].items()):
         msms_num = 0
-        for mzml in mzmls:
+        for mzml in tqdm(mzmls, leave=False):
             file_path = RAWs_PATH + mzml.split(".")[0] + '.mzML'
             exp = MSExperiment()
             if os.path.exists(file_path):

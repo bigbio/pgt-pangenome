@@ -1,366 +1,77 @@
 Gene_set	Term	Overlap	P-value	Adjusted P-value	Old P-value	Old Adjusted P-value	Odds Ratio	Combined Score	Genes
-GO_Molecular_Function_2023	Cadherin Binding (GO:0045296)	32/319	1.685207e-11	4.295761e-09	0	0	4.669324e+00	1.158298e+02	MACF1;LAD1;AHNAK;EVPL;PPL;ADD1;PDLIM1;GOLGA3;PCMT1;ARVCF;MPRIP;BAG3;RPL14;TNKS1BP1;FLNA;EPS8L1;FLNB;LRRFIP1;PDLIM5;CAST;NOP56;SWAP70;SEPTIN9;KTN1;EEF1D;GLOD4;CDH11;PLIN3;MYH9;ESYT2;TJP2;PLEC
-GO_Molecular_Function_2023	Actin Binding (GO:0003779)	24/183	2.353841e-11	4.295761e-09	0	0	6.254293e+00	1.530575e+02	MACF1;GSN;LRRK2;SYNPO2;COBL;LDB3;MYO9B;SORBS1;IQGAP2;SPTB;SYNE2;ADD1;SYNE1;PDLIM1;SMTN;MLPH;NRAP;MYH9;EPS8L1;DMD;FLNB;CORO7;PDLIM5;GBP1
-GO_Molecular_Function_2023	Muscle Alpha-Actinin Binding (GO:0051371)	5/14	1.456251e-05	1.370891e-03	0	0	2.229081e+01	2.482541e+02	PDLIM1;SYNPO2;NRAP;PDLIM5;TTN
-GO_Molecular_Function_2023	Alpha-Actinin Binding (GO:0051393)	6/23	1.502347e-05	1.370891e-03	0	0	1.418460e+01	1.575327e+02	PDLIM1;SYNPO2;NRAP;LDB3;PDLIM5;TTN
-GO_Molecular_Function_2023	Aldehyde Dehydrogenase (NAD+) Activity (GO:0004029)	4/14	2.953199e-04	1.796529e-02	0	0	1.601561e+01	1.301661e+02	ALDH4A1;ALDH1L1;ALDH1B1;ALDH1A2
-GO_Molecular_Function_2023	Aldehyde Dehydrogenase [NAD(P)+] Activity (GO:0004030)	4/14	2.953199e-04	1.796529e-02	0	0	1.601561e+01	1.301661e+02	ALDH4A1;ALDH1L1;ALDH1B1;ALDH1A2
-GO_Molecular_Function_2023	Protein-Glutamine Gamma-Glutamyltransferase Activity (GO:0003810)	3/7	4.781741e-04	2.489898e-02	0	0	2.997695e+01	2.291898e+02	F13A1;TGM4;TGM3
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On The CH-OH Group Of Donors, NAD Or NADP As Acceptor (GO:0016616)	9/95	5.457311e-04	2.489898e-02	0	0	4.217094e+00	3.168465e+01	GRHPR;BDH2;ADH1C;ADH1B;AKR1A1;SORD;AKR1C3;HSD17B4;CBR4
-GO_Molecular_Function_2023	NAD-retinol Dehydrogenase Activity (GO:0004745)	4/19	1.037380e-03	4.207151e-02	0	0	1.067433e+01	7.334395e+01	ADH1C;ADH1B;AKR1A1;AKR1C3
-GO_Molecular_Function_2023	Vinculin Binding (GO:0017166)	3/10	1.551610e-03	5.663378e-02	0	0	1.712705e+01	1.107857e+02	SYNM;DMD;SORBS3
-GO_Molecular_Function_2023	Cysteine-Type Endopeptidase Inhibitor Activity (GO:0004869)	4/22	1.847019e-03	6.128745e-02	0	0	8.893908e+00	5.597988e+01	CAST;SERPINB3;CST1;LTF
-GO_Molecular_Function_2023	ADP Binding (GO:0043531)	4/27	4.022713e-03	1.064410e-01	0	0	6.958664e+00	3.838259e+01	MYO18A;TAP1;MYH9;MYO9B
-GO_Molecular_Function_2023	Lipoprotein Particle Receptor Binding (GO:0070325)	4/27	4.022713e-03	1.064410e-01	0	0	6.958664e+00	3.838259e+01	LRP1;APOB;CLU;HSPG2
-GO_Molecular_Function_2023	Protein Kinase Binding (GO:0019901)	23/511	4.082670e-03	1.064410e-01	0	0	1.915559e+00	1.053750e+01	DSP;TFRC;PRKCSH;GSTP1;CAVIN3;PRAM1;TTN;CEACAM3;FAM83H;MAVS;STING1;TRIM5;POTEI;POTEJ;EEF1A2;HCLS1;POTEE;SIRPA;POTEF;PDLIM5;NEFH;MYH6;TJP2
-GO_Molecular_Function_2023	Endopeptidase Inhibitor Activity (GO:0004866)	8/112	6.403272e-03	1.558129e-01	0	0	3.090460e+00	1.560975e+01	CAST;SERPINB3;SERPINB10;ITIH4;CST1;SERPINA1;SPINK5;LTF
-GO_Molecular_Function_2023	Alcohol Dehydrogenase Activity, Zinc-Dependent (GO:0004024)	2/6	8.450090e-03	1.751829e-01	0	0	1.994376e+01	9.520311e+01	ADH1C;ADH1B
-GO_Molecular_Function_2023	Alpha-Glucosidase Activity (GO:0090599)	2/6	8.450090e-03	1.751829e-01	0	0	1.994376e+01	9.520311e+01	MGAM;GAA
-GO_Molecular_Function_2023	Exopeptidase Activity (GO:0008238)	5/52	8.798590e-03	1.751829e-01	0	0	4.260135e+00	2.016392e+01	ENPEP;DPP7;ANPEP;ERAP1;DPP3
-GO_Molecular_Function_2023	Ankyrin Binding (GO:0030506)	3/18	9.119112e-03	1.751829e-01	0	0	7.989344e+00	3.752901e+01	OBSCN;SPTB;PLEC
-GO_Molecular_Function_2023	Kinase Binding (GO:0019900)	20/460	1.020874e-02	1.763994e-01	0	0	1.840282e+00	8.436793e+00	MYOM1;GSN;TFRC;HTT;MYOM2;PRAM1;TTN;FAM83H;MAVS;STING1;TRIM5;POTEI;POTEJ;EEF1A2;HCLS1;FLNA;POTEE;POTEF;NEFH;MYH6
-GO_Molecular_Function_2023	Protein Kinase C Binding (GO:0005080)	4/36	1.135641e-02	1.763994e-01	0	0	4.999230e+00	2.238642e+01	DSP;PRKCSH;CAVIN3;PDLIM5
-GO_Molecular_Function_2023	Immunoglobulin Receptor Binding (GO:0034987)	2/7	1.163887e-02	1.763994e-01	0	0	1.595419e+01	7.105048e+01	IGHA1;IGHA2
-GO_Molecular_Function_2023	Retinal Dehydrogenase Activity (GO:0001758)	2/7	1.163887e-02	1.763994e-01	0	0	1.595419e+01	7.105048e+01	ALDH1A2;AKR1C3
-GO_Molecular_Function_2023	Actinin Binding (GO:0042805)	3/20	1.228668e-02	1.763994e-01	0	0	7.048698e+00	3.100891e+01	SYNPO2;PDLIM5;TTN
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On The Aldehyde Or Oxo Group Of Donors, NAD Or NADP As Acceptor (GO:0016620)	3/20	1.228668e-02	1.763994e-01	0	0	7.048698e+00	3.100891e+01	ALDH4A1;ALDH1A2;AKR1C3
-GO_Molecular_Function_2023	Metalloexopeptidase Activity (GO:0008235)	5/57	1.283633e-02	1.763994e-01	0	0	3.849517e+00	1.676648e+01	ENPEP;ANPEP;ERAP1;CPOX;AEBP1
-GO_Molecular_Function_2023	Protein Homodimerization Activity (GO:0042803)	26/662	1.304873e-02	1.763994e-01	0	0	1.659221e+00	7.199467e+00	MYOM1;TFRC;CALCOCO2;LRRK2;PON1;HSD17B4;CPOX;ADD1;MYOM3;SYNE1;TRIM5;FLNA;MMUT;LRRFIP1;GBP1;GSTM1;PDCD6IP;TXNRD2;SORD;TAP1;MYO9B;VIL1;GRHPR;STING1;CEACAM5;MYH9
-GO_Molecular_Function_2023	Adenylate Cyclase Binding (GO:0008179)	2/8	1.526812e-02	1.857621e-01	0	0	1.329448e+01	5.559735e+01	AKAP12;AKAP5
-GO_Molecular_Function_2023	Alcohol Dehydrogenase (NAD+) Activity (GO:0004022)	2/8	1.526812e-02	1.857621e-01	0	0	1.329448e+01	5.559735e+01	ADH1C;ADH1B
-GO_Molecular_Function_2023	Carbon-Nitrogen Ligase Activity, With Glutamine As amido-N-donor (GO:0016884)	2/8	1.526812e-02	1.857621e-01	0	0	1.329448e+01	5.559735e+01	CPS1;PFAS
-GO_Molecular_Function_2023	Low-Density Lipoprotein Particle Receptor Binding (GO:0050750)	3/22	1.600883e-02	1.884910e-01	0	0	6.306083e+00	2.607323e+01	APOB;CLU;HSPG2
-GO_Molecular_Function_2023	Metal Ion Binding (GO:0046872)	21/521	1.872462e-02	2.073456e-01	0	0	1.698677e+00	6.757193e+00	AOC3;POSTN;GSN;LRP1;LRRK2;PON1;PLA2G4C;LTBP4;CLU;TTN;VIL1;CPS1;ALPP;CDH11;PIR;SPARCL1;ESYT2;PCK1;NUCB2;PGM1;TGM3
-GO_Molecular_Function_2023	MHC Class II Receptor Activity (GO:0032395)	2/9	1.931439e-02	2.073456e-01	0	0	1.139468e+01	4.497373e+01	HLA-DRB1;HLA-DPA1
-GO_Molecular_Function_2023	Protein Binding Involved In Heterotypic Cell-Cell Adhesion (GO:0086080)	2/9	1.931439e-02	2.073456e-01	0	0	1.139468e+01	4.497373e+01	DSP;SIRPA
-GO_Molecular_Function_2023	MHC Class II Protein Complex Binding (GO:0023026)	3/25	2.265213e-02	2.281739e-01	0	0	5.445324e+00	2.062417e+01	HLA-DRB5;HLA-DRB1;HLA-DPA1
-GO_Molecular_Function_2023	Complement Component C3b Binding (GO:0001851)	2/10	2.375509e-02	2.281739e-01	0	0	9.969836e+00	3.728677e+01	CR1;CFHR1
-GO_Molecular_Function_2023	Dipeptidyl-Peptidase Activity (GO:0008239)	2/10	2.375509e-02	2.281739e-01	0	0	9.969836e+00	3.728677e+01	DPP7;DPP3
-GO_Molecular_Function_2023	Semaphorin Receptor Activity (GO:0017154)	2/10	2.375509e-02	2.281739e-01	0	0	9.969836e+00	3.728677e+01	PLXND1;PLXNB2
-GO_Molecular_Function_2023	NAD Binding (GO:0051287)	3/26	2.515107e-02	2.353882e-01	0	0	5.208304e+00	1.918143e+01	BDH2;ALDH1B1;SORD
-GO_Molecular_Function_2023	Hydro-Lyase Activity (GO:0016836)	4/46	2.600202e-02	2.372684e-01	0	0	3.806982e+00	1.389389e+01	APIP;HSD17B4;ECHDC3;ENO3
-GO_Molecular_Function_2023	Hexosaminidase Activity (GO:0015929)	2/11	2.856851e-02	2.482740e-01	0	0	8.861622e+00	3.150706e+01	HEXB;HEXA
-GO_Molecular_Function_2023	enoyl-CoA Hydratase Activity (GO:0004300)	2/11	2.856851e-02	2.482740e-01	0	0	8.861622e+00	3.150706e+01	HSD17B4;ECHDC3
-GO_Molecular_Function_2023	Glutathione Transferase Activity (GO:0004364)	3/28	3.057477e-02	2.595300e-01	0	0	4.791148e+00	1.670951e+01	GSTM1;GSTO1;GSTP1
-GO_Molecular_Function_2023	Aminopeptidase Activity (GO:0004177)	3/29	3.349824e-02	2.725627e-01	0	0	4.606636e+00	1.564535e+01	ENPEP;ANPEP;ERAP1
-GO_Molecular_Function_2023	Phosphatidylinositol-4,5-Bisphosphate Binding (GO:0005546)	5/73	3.360362e-02	2.725627e-01	0	0	2.941328e+00	9.980282e+00	VIL1;SVIL;OBSCN;GSN;WASHC2C
-GO_Molecular_Function_2023	NADPH Binding (GO:0070402)	2/13	3.923070e-02	3.023678e-01	0	0	7.249675e+00	2.347659e+01	GRHPR;CBR4
-GO_Molecular_Function_2023	Adenyl Nucleotide Binding (GO:0030554)	3/31	3.976344e-02	3.023678e-01	0	0	4.277152e+00	1.379299e+01	BDH2;ALDH1B1;SORD
-GO_Molecular_Function_2023	snoRNA Binding (GO:0030515)	3/31	3.976344e-02	3.023678e-01	0	0	4.277152e+00	1.379299e+01	NOP56;PRKDC;HEATR1
-GO_Molecular_Function_2023	Serine-Type Endopeptidase Inhibitor Activity (GO:0004867)	4/53	4.087745e-02	3.044953e-01	0	0	3.261954e+00	1.042904e+01	SERPINB3;SERPINB10;SERPINA1;SPINK5
-GO_Molecular_Function_2023	Zinc Ion Binding (GO:0008270)	14/341	4.297539e-02	3.137204e-01	0	0	1.721693e+00	5.418388e+00	ENPEP;SEC23A;ADH1C;ADH1B;ERAP1;APIP;SORD;CRIP1;MMP9;DPP3;CLIP1;PITRM1;ALPP;ANPEP
-GO_Molecular_Function_2023	Flavin Adenine Dinucleotide Binding (GO:0050660)	4/55	4.585222e-02	3.281581e-01	0	0	3.133712e+00	9.659139e+00	STEAP4;SORD;SDHA;PRODH
-GO_Molecular_Function_2023	Calcium Ion Binding (GO:0005509)	14/346	4.748218e-02	3.332883e-01	0	0	1.695322e+00	5.166326e+00	AOC3;GSN;LRP1;PLA2G4C;PON1;LTBP4;CLU;TTN;VIL1;CDH11;SPARCL1;ESYT2;NUCB2;TGM3
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On NAD(P)H, Quinone Or Similar Compound As Acceptor (GO:0016655)	2/15	5.114318e-02	3.522125e-01	0	0	6.133711e+00	1.823630e+01	AKR1C3;CBR4
-GO_Molecular_Function_2023	Phosphatidylinositol-5-Phosphate Binding (GO:0010314)	2/16	5.752226e-02	3.777168e-01	0	0	5.695297e+00	1.626339e+01	OBSCN;WASHC2C
-GO_Molecular_Function_2023	Phosphatidylinositol-3,4,5-Trisphosphate Binding (GO:0005547)	3/36	5.779575e-02	3.777168e-01	0	0	3.628167e+00	1.034332e+01	OBSCN;WASHC2C;IQGAP2
-GO_Molecular_Function_2023	Transition Metal Ion Binding (GO:0046914)	17/456	5.883810e-02	3.777168e-01	0	0	1.557962e+00	4.413652e+00	AOC3;ENPEP;SEC23A;ADH1C;ADH1B;ERAP1;APIP;SORD;CRIP1;MMP9;DPP3;CLIP1;PITRM1;ALPP;ANPEP;PCK1;LTF
-GO_Molecular_Function_2023	GTPase Regulator Activity (GO:0030695)	16/424	6.001191e-02	3.777168e-01	0	0	1.576966e+00	4.436340e+00	SEC23A;DENND2B;SWAP70;LRRK2;MYO9B;IQGAP2;ARHGAP45;AKAP13;OBSCN;EEF1D;SIRPA;EPS8L1;RIN3;ARHGEF40;TBC1D17;NUCB2
-GO_Molecular_Function_2023	RNA Binding (GO:0003723)	44/1411	6.065166e-02	3.777168e-01	0	0	1.306357e+00	3.661206e+00	DMGDH;MACF1;AHNAK;TFRC;LRP1;PRKDC;HEATR1;RRBP1;ADAR;RPL8;MKI67;SRP14;ADD1;SYNE1;IFI16;RPL14;MYO18A;RPL13;FLNA;FLNB;MAP4;LRRFIP1;TNS1;DSP;NOP56;CAST;PNPT1;GLRX3;RBM19;PRRC2C;HLA-A;ASS1;CKAP4;ELAPOR1;KTN1;PDIA4;MYBBP1A;THRAP3;GOLGB1;MYH9;ACIN1;EPPK1;HDGF;PLEC
-GO_Molecular_Function_2023	Peptidase Inhibitor Activity (GO:0030414)	3/37	6.179318e-02	3.777168e-01	0	0	3.521275e+00	9.803098e+00	CAST;ITIH4;A2ML1
-GO_Molecular_Function_2023	Guanyl-Nucleotide Exchange Factor Activity (GO:0005085)	9/203	6.362888e-02	3.777168e-01	0	0	1.859039e+00	5.121072e+00	AKAP13;OBSCN;EEF1D;DENND2B;SWAP70;EPS8L1;RIN3;ARHGEF40;NUCB2
-GO_Molecular_Function_2023	Cadherin Binding Involved In Cell-Cell Adhesion (GO:0098641)	2/17	6.416011e-02	3.777168e-01	0	0	5.315337e+00	1.459790e+01	PDLIM1;PDLIM5
-GO_Molecular_Function_2023	Carboxylic Acid Binding (GO:0031406)	2/17	6.416011e-02	3.777168e-01	0	0	5.315337e+00	1.459790e+01	PCK1;ASS1
-GO_Molecular_Function_2023	Nucleoside Monophosphate Kinase Activity (GO:0050145)	2/18	7.104024e-02	4.051514e-01	0	0	4.982873e+00	1.317725e+01	CMPK1;TJP2
-GO_Molecular_Function_2023	Cholesterol Transfer Activity (GO:0120020)	2/18	7.104024e-02	4.051514e-01	0	0	4.982873e+00	1.317725e+01	MTTP;APOB
-GO_Molecular_Function_2023	Sterol Transfer Activity (GO:0120015)	2/19	7.814682e-02	4.232789e-01	0	0	4.689522e+00	1.195437e+01	MTTP;APOB
-GO_Molecular_Function_2023	Metalloaminopeptidase Activity (GO:0070006)	2/19	7.814682e-02	4.232789e-01	0	0	4.689522e+00	1.195437e+01	ENPEP;ERAP1
-GO_Molecular_Function_2023	Microtubule Plus-End Binding (GO:0051010)	2/19	7.814682e-02	4.232789e-01	0	0	4.689522e+00	1.195437e+01	CLIP1;DST
-GO_Molecular_Function_2023	Phosphatidylinositol Bisphosphate Binding (GO:1902936)	5/93	7.885743e-02	4.232789e-01	0	0	2.270506e+00	5.767343e+00	VIL1;SVIL;OBSCN;GSN;WASHC2C
-GO_Molecular_Function_2023	Cell-Cell Adhesion Mediator Activity (GO:0098632)	3/43	8.831545e-02	4.318367e-01	0	0	2.992162e+00	7.261499e+00	PDLIM1;SIRPA;PDLIM5
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On Single Donors With Incorporation Of Molecular Oxygen, Incorporation Of Two Atoms Of Oxygen (GO:0016702)	2/21	9.297904e-02	4.318367e-01	0	0	4.195458e+00	9.965812e+00	HAAO;PIR
-GO_Molecular_Function_2023	Steroid Dehydrogenase Activity, Acting On The CH-OH Group Of Donors, NAD Or NADP As Acceptor (GO:0033764)	2/22	1.006761e-01	4.318367e-01	0	0	3.985481e+00	9.150054e+00	AKR1C3;HSD17B4
-GO_Molecular_Function_2023	Protein Kinase A Regulatory Subunit Binding (GO:0034237)	2/22	1.006761e-01	4.318367e-01	0	0	3.985481e+00	9.150054e+00	AKAP9;AKAP5
-GO_Molecular_Function_2023	Steroid Hydroxylase Activity (GO:0008395)	2/23	1.085423e-01	4.318367e-01	0	0	3.795501e+00	8.428349e+00	CYP2C9;CYP1B1
-GO_Molecular_Function_2023	Sterol Esterase Activity (GO:0004771)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	CES1
-GO_Molecular_Function_2023	3-hydroxyacyl-CoA Dehydrogenase Activity (GO:0003857)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	HSD17B4
-GO_Molecular_Function_2023	CoA Carboxylase Activity (GO:0016421)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	ACACB
-GO_Molecular_Function_2023	Keratin Filament Binding (GO:1990254)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	FAM83H
-GO_Molecular_Function_2023	N,N-dimethylaniline Monooxygenase Activity (GO:0004499)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	FMO3
-GO_Molecular_Function_2023	N-acylsphingosine Amidohydrolase Activity (GO:0017040)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	ASAH1
-GO_Molecular_Function_2023	Oligosaccharyl Transferase Activity (GO:0004576)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	RPN2
-GO_Molecular_Function_2023	Alkaline Phosphatase Activity (GO:0004035)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	ALPP
-GO_Molecular_Function_2023	Arylesterase Activity (GO:0004064)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	PON1
-GO_Molecular_Function_2023	Axon Guidance Receptor Activity (GO:0008046)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	HMCN2
-GO_Molecular_Function_2023	Phospholipase D Activity (GO:0004630)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	GPLD1
-GO_Molecular_Function_2023	Carnitine O-acyltransferase Activity (GO:0016406)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	CPT2
-GO_Molecular_Function_2023	Protein Carboxyl O-methyltransferase Activity (GO:0051998)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	PCMT1
-GO_Molecular_Function_2023	Ceramide 1-Phosphate Transfer Activity (GO:1902388)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	MTTP
-GO_Molecular_Function_2023	Chitinase Activity (GO:0004568)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	OVGP1
-GO_Molecular_Function_2023	Cobalamin Binding (GO:0031419)	1/5	1.168799e-01	4.318367e-01	0	0	9.951531e+00	2.136204e+01	MMUT
-GO_Molecular_Function_2023	Small GTPase Binding (GO:0031267)	8/199	1.179943e-01	4.318367e-01	0	0	1.675219e+00	3.580143e+00	AKAP13;GOLGA4;MLPH;LRRK2;FLNA;RIN3;MYO9B;IQGAP2
-GO_Molecular_Function_2023	Kinase Activity (GO:0016301)	5/106	1.198903e-01	4.318367e-01	0	0	1.976938e+00	4.193439e+00	PANK4;ITPKB;TKFC;LRRK2;PGM2L1
-GO_Molecular_Function_2023	Phosphotransferase Activity, Alcohol Group As Acceptor (GO:0016773)	4/77	1.209141e-01	4.318367e-01	0	0	2.186830e+00	4.620061e+00	PANK4;ITPKB;TKFC;PGM2L1
-GO_Molecular_Function_2023	FAD Binding (GO:0071949)	2/25	1.247310e-01	4.318367e-01	0	0	3.465102e+00	7.212941e+00	STEAP4;PRODH
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On Paired Donors, With Incorporation Or Reduction Of Molecular Oxygen, Reduced Flavin Or Flavoprotein As One Donor, And Incorporation Of One Atom Of Oxygen (GO:0016712)	2/25	1.247310e-01	4.318367e-01	0	0	3.465102e+00	7.212941e+00	CYP2C9;CYP1B1
-GO_Molecular_Function_2023	Phosphatidylinositol-3,4-Bisphosphate Binding (GO:0043325)	2/25	1.247310e-01	4.318367e-01	0	0	3.465102e+00	7.212941e+00	OBSCN;WASHC2C
-GO_Molecular_Function_2023	Phosphatidylinositol-4-Phosphate Binding (GO:0070273)	2/25	1.247310e-01	4.318367e-01	0	0	3.465102e+00	7.212941e+00	OBSCN;WASHC2C
-GO_Molecular_Function_2023	Microtubule Binding (GO:0008017)	9/239	1.354773e-01	4.318367e-01	0	0	1.565136e+00	3.128631e+00	MACF1;CLIP1;DST;LRRK2;FMN1;MAP4;NEFH;EML2;FTCD
-GO_Molecular_Function_2023	3-hydroxyacyl-CoA Dehydratase Activity (GO:0018812)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	HSD17B4
-GO_Molecular_Function_2023	Telethonin Binding (GO:0031433)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	TTN
-GO_Molecular_Function_2023	ABC-type Glutathione S-conjugate Transporter Activity (GO:0015431)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	ABCC6
-GO_Molecular_Function_2023	Interleukin-6 Receptor Binding (GO:0005138)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	ERAP1
-GO_Molecular_Function_2023	Monosaccharide Transmembrane Transporter Activity (GO:0015145)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	SLC2A9
-GO_Molecular_Function_2023	Roundabout Binding (GO:0048495)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	MYO9B
-GO_Molecular_Function_2023	Nitric-Oxide Synthase Binding (GO:0050998)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	DMD
-GO_Molecular_Function_2023	acetyl-CoA C-acyltransferase Activity (GO:0003988)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	ACAT2
-GO_Molecular_Function_2023	Nucleoside Kinase Activity (GO:0019206)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	CMPK1
-GO_Molecular_Function_2023	Acid-Amino Acid Ligase Activity (GO:0016881)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	GHDC
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On A Sulfur Group Of Donors, Disulfide As Acceptor (GO:0016671)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	DNAJC10
-GO_Molecular_Function_2023	Alpha-Mannosidase Activity (GO:0004559)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	MAN2B1
-GO_Molecular_Function_2023	Carbohydrate:Proton Symporter Activity (GO:0005351)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	SLC2A9
-GO_Molecular_Function_2023	Primary Amine Oxidase Activity (GO:0008131)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	AOC3
-GO_Molecular_Function_2023	Ceramide Transfer Activity (GO:0120017)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	MTTP
-GO_Molecular_Function_2023	Choline Transmembrane Transporter Activity (GO:0015220)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	SLC44A2
-GO_Molecular_Function_2023	Ether Hydrolase Activity (GO:0016803)	1/6	1.385659e-01	4.318367e-01	0	0	7.960816e+00	1.573383e+01	EPHX1
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On Paired Donors, With Incorporation Or Reduction Of Molecular Oxygen, NAD(P)H As One Donor, And Incorporation Of One Atom Of Oxygen (GO:0016709)	2/27	1.414483e-01	4.318367e-01	0	0	3.187566e+00	6.234309e+00	AKR1C3;FMO3
-GO_Molecular_Function_2023	Myosin Binding (GO:0017022)	3/54	1.466403e-01	4.318367e-01	0	0	2.345468e+00	4.502765e+00	GSN;MLPH;DMD
-GO_Molecular_Function_2023	Monocarboxylic Acid Binding (GO:0033293)	2/28	1.499771e-01	4.318367e-01	0	0	3.064810e+00	5.814782e+00	UGT2B15;AKR1C3
-GO_Molecular_Function_2023	Protein Serine/Threonine Phosphatase Activity (GO:0004722)	3/55	1.524550e-01	4.318367e-01	0	0	2.300244e+00	4.326497e+00	MYH3;MYH6;MTMR6
-GO_Molecular_Function_2023	Metallocarboxypeptidase Activity (GO:0004181)	2/29	1.586051e-01	4.318367e-01	0	0	2.951147e+00	5.434059e+00	CPOX;AEBP1
-GO_Molecular_Function_2023	Fructose Transmembrane Transporter Activity (GO:0005353)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	SLC2A9
-GO_Molecular_Function_2023	tRNA-specific Adenosine Deaminase Activity (GO:0008251)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	ADAR
-GO_Molecular_Function_2023	CD4 Receptor Binding (GO:0042609)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	HLA-DRB1
-GO_Molecular_Function_2023	Histone H4K20 Methyltransferase Activity (GO:0042799)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	TTLL12
-GO_Molecular_Function_2023	Hydroxymethyl-, Formyl- And Related Transferase Activity (GO:0016742)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	FTCD
-GO_Molecular_Function_2023	Urate Transmembrane Transporter Activity (GO:0015143)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	SLC2A9
-GO_Molecular_Function_2023	MHC Class Ib Protein Binding (GO:0023029)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	TAP1
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On The CH-NH2 Group Of Donors, Oxygen As Acceptor (GO:0016641)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	AOC3
-GO_Molecular_Function_2023	Alcohol Dehydrogenase [NAD(P)+] Activity (GO:0018455)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	ADH1C
-GO_Molecular_Function_2023	Peptide Transmembrane Transporter Activity (GO:1904680)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	TAP1
-GO_Molecular_Function_2023	Androsterone Dehydrogenase Activity (GO:0047023)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	AKR1C3
-GO_Molecular_Function_2023	Phosphatidylethanolamine Binding (GO:0008429)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	ESYT2
-GO_Molecular_Function_2023	Bubble DNA Binding (GO:0000405)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	XPC
-GO_Molecular_Function_2023	poly(G) Binding (GO:0034046)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	PNPT1
-GO_Molecular_Function_2023	Calcium-Independent Phospholipase A2 Activity (GO:0047499)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	PLA2G4C
-GO_Molecular_Function_2023	Estrogen 16-Alpha-Hydroxylase Activity (GO:0101020)	1/7	1.597204e-01	4.318367e-01	0	0	6.633673e+00	1.216835e+01	CYP1B1
-GO_Molecular_Function_2023	Retinoid Binding (GO:0005501)	2/30	1.673225e-01	4.490641e-01	0	0	2.845603e+00	5.087461e+00	ALDH1A2;UGT2B15
-GO_Molecular_Function_2023	Tubulin Binding (GO:0015631)	11/322	1.705943e-01	4.508912e-01	0	0	1.414644e+00	2.501751e+00	CLIP1;DST;LRRK2;HTT;FMN1;TTLL12;MAP4;NEFH;WASHC1;EML2;FTCD
-GO_Molecular_Function_2023	SH3 Domain Binding (GO:0017124)	3/59	1.764004e-01	4.508912e-01	0	0	2.135502e+00	3.705094e+00	GPX1;CYBA;AKAP5
-GO_Molecular_Function_2023	Growth Hormone Receptor Binding (GO:0005131)	1/8	1.803565e-01	4.508912e-01	0	0	5.685714e+00	9.738605e+00	GH1
-GO_Molecular_Function_2023	Guanylate Kinase Activity (GO:0004385)	1/8	1.803565e-01	4.508912e-01	0	0	5.685714e+00	9.738605e+00	TJP2
-GO_Molecular_Function_2023	Histone H3K4 Demethylase Activity (GO:0032453)	1/8	1.803565e-01	4.508912e-01	0	0	5.685714e+00	9.738605e+00	RIOX2
-GO_Molecular_Function_2023	Mannosidase Activity (GO:0015923)	1/8	1.803565e-01	4.508912e-01	0	0	5.685714e+00	9.738605e+00	MAN2B1
-GO_Molecular_Function_2023	Bile Acid Binding (GO:0032052)	1/8	1.803565e-01	4.508912e-01	0	0	5.685714e+00	9.738605e+00	AKR1C3
-GO_Molecular_Function_2023	Cuprous Ion Binding (GO:1903136)	1/8	1.803565e-01	4.508912e-01	0	0	5.685714e+00	9.738605e+00	MUC2
-GO_Molecular_Function_2023	Retinal Binding (GO:0016918)	1/8	1.803565e-01	4.508912e-01	0	0	5.685714e+00	9.738605e+00	ALDH1A2
-GO_Molecular_Function_2023	Disulfide Oxidoreductase Activity (GO:0015036)	1/8	1.803565e-01	4.508912e-01	0	0	5.685714e+00	9.738605e+00	PDIA2
-GO_Molecular_Function_2023	UDP-glycosyltransferase Activity (GO:0008194)	3/61	1.887415e-01	4.545197e-01	0	0	2.061652e+00	3.437551e+00	HEXB;HEXA;UGT2B15
-GO_Molecular_Function_2023	GTPase Binding (GO:0051020)	8/225	1.900950e-01	4.545197e-01	0	0	1.472517e+00	2.444719e+00	AKAP13;GOLGA4;MLPH;LRRK2;FLNA;RIN3;MYO9B;IQGAP2
-GO_Molecular_Function_2023	Protease Binding (GO:0002020)	5/125	1.938895e-01	4.545197e-01	0	0	1.662294e+00	2.726939e+00	SERPINB3;ECM1;SERPINA1;VWF;TTN
-GO_Molecular_Function_2023	Glutathione Binding (GO:0043295)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	GSTM1
-GO_Molecular_Function_2023	Histone H3K36 Demethylase Activity (GO:0051864)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	RIOX2
-GO_Molecular_Function_2023	GDP Phosphatase Activity (GO:0004382)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	GBP1
-GO_Molecular_Function_2023	Intramolecular Transferase Activity, Phosphotransferases (GO:0016868)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	PGM1
-GO_Molecular_Function_2023	JUN Kinase Binding (GO:0008432)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	GSTP1
-GO_Molecular_Function_2023	NADP-retinol Dehydrogenase Activity (GO:0052650)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	AKR1C3
-GO_Molecular_Function_2023	U3 snoRNA Binding (GO:0034511)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	PRKDC
-GO_Molecular_Function_2023	Adenosine Deaminase Activity (GO:0004000)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	ADAR
-GO_Molecular_Function_2023	Phosphatidylinositol-3,5-Bisphosphate 3-Phosphatase Activity (GO:0052629)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	MTMR6
-GO_Molecular_Function_2023	Potassium Ion Binding (GO:0030955)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	CPS1
-GO_Molecular_Function_2023	Clathrin Heavy Chain Binding (GO:0032050)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	LRP1
-GO_Molecular_Function_2023	Estradiol 17-Beta-Dehydrogenase [NAD(P)] Activity (GO:0004303)	1/9	2.004868e-01	4.545197e-01	0	0	4.974745e+00	7.994450e+00	HSD17B4
-GO_Molecular_Function_2023	NADP Binding (GO:0050661)	2/35	2.119292e-01	4.754149e-01	0	0	2.413832e+00	3.745067e+00	GRHPR;CBR4
-GO_Molecular_Function_2023	Double-Stranded RNA Binding (GO:0003725)	3/65	2.140394e-01	4.754149e-01	0	0	1.928246e+00	2.972574e+00	TFRC;ADAR;LRRFIP1
-GO_Molecular_Function_2023	Transforming Growth Factor Beta Receptor Activity (GO:0005024)	1/10	2.201236e-01	4.754149e-01	0	0	4.421769e+00	6.692639e+00	LTBP4
-GO_Molecular_Function_2023	Myosin II Binding (GO:0045159)	1/10	2.201236e-01	4.754149e-01	0	0	4.421769e+00	6.692639e+00	GSN
-GO_Molecular_Function_2023	alditol:NADP+ 1-Oxidoreductase Activity (GO:0004032)	1/10	2.201236e-01	4.754149e-01	0	0	4.421769e+00	6.692639e+00	AKR1C3
-GO_Molecular_Function_2023	Platelet-Derived Growth Factor Binding (GO:0048407)	1/10	2.201236e-01	4.754149e-01	0	0	4.421769e+00	6.692639e+00	COL6A1
-GO_Molecular_Function_2023	Carbohydrate:Monoatomic Cation Symporter Activity (GO:0005402)	1/10	2.201236e-01	4.754149e-01	0	0	4.421769e+00	6.692639e+00	SLC2A9
-GO_Molecular_Function_2023	Filamin Binding (GO:0031005)	1/10	2.201236e-01	4.754149e-01	0	0	4.421769e+00	6.692639e+00	SYNPO2
-GO_Molecular_Function_2023	Monoatomic Cation Transmembrane Transporter Activity (GO:0008324)	2/37	2.300932e-01	4.879155e-01	0	0	2.275665e+00	3.343568e+00	PIEZO1;CLU
-GO_Molecular_Function_2023	Monoatomic Ion Channel Activity (GO:0005216)	2/37	2.300932e-01	4.879155e-01	0	0	2.275665e+00	3.343568e+00	PIEZO1;CLU
-GO_Molecular_Function_2023	Adenyl Ribonucleotide Binding (GO:0032559)	10/309	2.301298e-01	4.879155e-01	0	0	1.335707e+00	1.962303e+00	STING1;PRAG1;HSPA4L;MINK1;ABCC6;MYO18A;TAP1;MYH9;MYO9B;SYN2
-GO_Molecular_Function_2023	Carboxypeptidase Activity (GO:0004180)	2/38	2.392142e-01	4.879155e-01	0	0	2.212338e+00	3.164520e+00	CPOX;AEBP1
-GO_Molecular_Function_2023	Histone Methyltransferase Binding (GO:1990226)	1/11	2.392791e-01	4.879155e-01	0	0	3.979388e+00	5.691020e+00	NOP56
-GO_Molecular_Function_2023	Neurexin Family Protein Binding (GO:0042043)	1/11	2.392791e-01	4.879155e-01	0	0	3.979388e+00	5.691020e+00	SYTL4
-GO_Molecular_Function_2023	Phosphatidylinositol-3-Phosphate Phosphatase Activity (GO:0004438)	1/11	2.392791e-01	4.879155e-01	0	0	3.979388e+00	5.691020e+00	MTMR6
-GO_Molecular_Function_2023	Complement Receptor Activity (GO:0004875)	1/11	2.392791e-01	4.879155e-01	0	0	3.979388e+00	5.691020e+00	CR1
-GO_Molecular_Function_2023	Pseudouridine Synthase Activity (GO:0009982)	1/11	2.392791e-01	4.879155e-01	0	0	3.979388e+00	5.691020e+00	PUS3
-GO_Molecular_Function_2023	Dynactin Binding (GO:0034452)	1/11	2.392791e-01	4.879155e-01	0	0	3.979388e+00	5.691020e+00	HTT
-GO_Molecular_Function_2023	Pentosyltransferase Activity (GO:0016763)	2/39	2.483522e-01	4.904024e-01	0	0	2.152435e+00	2.998142e+00	PARP4;UMPS
-GO_Molecular_Function_2023	ATP Binding (GO:0005524)	9/279	2.485972e-01	4.904024e-01	0	0	1.330498e+00	1.851948e+00	PRAG1;HSPA4L;MINK1;ABCC6;MYO18A;TAP1;MYH9;MYO9B;SYN2
-GO_Molecular_Function_2023	Carboxylic Ester Hydrolase Activity (GO:0052689)	4/104	2.523654e-01	4.904024e-01	0	0	1.594168e+00	2.194974e+00	ESD;PLA2G4C;PON1;CES1
-GO_Molecular_Function_2023	Acetylglucosaminyltransferase Activity (GO:0008375)	2/40	2.575009e-01	4.904024e-01	0	0	2.095684e+00	2.843281e+00	HEXB;HEXA
-GO_Molecular_Function_2023	Phosphatidylinositol-3-Phosphate Binding (GO:0032266)	2/40	2.575009e-01	4.904024e-01	0	0	2.095684e+00	2.843281e+00	OBSCN;WASHC2C
-GO_Molecular_Function_2023	2 Iron, 2 Sulfur Cluster Binding (GO:0051537)	1/12	2.579651e-01	4.904024e-01	0	0	3.617440e+00	4.901381e+00	SORD
-GO_Molecular_Function_2023	Titin Binding (GO:0031432)	1/12	2.579651e-01	4.904024e-01	0	0	3.617440e+00	4.901381e+00	OBSCN
-GO_Molecular_Function_2023	Hydrolase Activity, Acting On Carbon-Nitrogen (But Not Peptide) Bonds, In Cyclic Amides (GO:0016812)	1/12	2.579651e-01	4.904024e-01	0	0	3.617440e+00	4.901381e+00	OPLAH
-GO_Molecular_Function_2023	Intramolecular Oxidoreductase Activity, Transposing C=C Bonds (GO:0016863)	1/12	2.579651e-01	4.904024e-01	0	0	3.617440e+00	4.901381e+00	ECH1
-GO_Molecular_Function_2023	GTPase Inhibitor Activity (GO:0005095)	1/12	2.579651e-01	4.904024e-01	0	0	3.617440e+00	4.901381e+00	IQGAP2
-GO_Molecular_Function_2023	Microtubule Minus-End Binding (GO:0051011)	1/12	2.579651e-01	4.904024e-01	0	0	3.617440e+00	4.901381e+00	MACF1
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On NAD(P)H, Oxygen As Acceptor (GO:0050664)	1/12	2.579651e-01	4.904024e-01	0	0	3.617440e+00	4.901381e+00	CYBA
-GO_Molecular_Function_2023	Phosphatidylinositol Monophosphate Phosphatase Activity (GO:0052744)	1/12	2.579651e-01	4.904024e-01	0	0	3.617440e+00	4.901381e+00	MTMR6
-GO_Molecular_Function_2023	Phosphatidylinositol Binding (GO:0035091)	4/106	2.631552e-01	4.951116e-01	0	0	1.562749e+00	2.086288e+00	CEACAM5;WASHC2C;ESYT2;WASHC2A
-GO_Molecular_Function_2023	Cysteine-Type Endopeptidase Activity (GO:0004197)	4/106	2.631552e-01	4.951116e-01	0	0	1.562749e+00	2.086288e+00	CAPN2;TINAG;CTSC;CTSB
-GO_Molecular_Function_2023	Hormone Activity (GO:0005179)	3/74	2.731190e-01	5.015444e-01	0	0	1.683041e+00	2.184330e+00	GH1;FLNB;CHGB
-GO_Molecular_Function_2023	Lipase Activity (GO:0016298)	2/42	2.758068e-01	5.015444e-01	0	0	1.990695e+00	2.564125e+00	PLBD1;CES1
-GO_Molecular_Function_2023	Endopeptidase Regulator Activity (GO:0061135)	2/42	2.758068e-01	5.015444e-01	0	0	1.990695e+00	2.564125e+00	CAST;ITIH4
-GO_Molecular_Function_2023	CARD Domain Binding (GO:0050700)	1/13	2.761929e-01	5.015444e-01	0	0	3.315816e+00	4.266314e+00	MAVS
-GO_Molecular_Function_2023	Nuclear Vitamin D Receptor Binding (GO:0042809)	1/13	2.761929e-01	5.015444e-01	0	0	3.315816e+00	4.266314e+00	THRAP3
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On The CH-NH Group Of Donors, NAD Or NADP As Acceptor (GO:0016646)	1/13	2.761929e-01	5.015444e-01	0	0	3.315816e+00	4.266314e+00	ALDH1L1
-GO_Molecular_Function_2023	Phosphatidylinositol-3,5-Bisphosphate Phosphatase Activity (GO:0106018)	1/13	2.761929e-01	5.015444e-01	0	0	3.315816e+00	4.266314e+00	MTMR6
-GO_Molecular_Function_2023	Phosphatidylinositol Phosphate Binding (GO:1901981)	4/109	2.794958e-01	5.039518e-01	0	0	1.517864e+00	1.934925e+00	OBSCN;WASHC2C;IQGAP2;WASHC2A
-GO_Molecular_Function_2023	Phospholipase Activity (GO:0004620)	3/77	2.932185e-01	5.039518e-01	0	0	1.614560e+00	1.980803e+00	PLA2G4C;PLBD1;GPLD1
-GO_Molecular_Function_2023	Transaminase Activity (GO:0008483)	1/14	2.939739e-01	5.039518e-01	0	0	3.060597e+00	3.746979e+00	AGXT2
-GO_Molecular_Function_2023	Translation Elongation Factor Activity (GO:0003746)	1/14	2.939739e-01	5.039518e-01	0	0	3.060597e+00	3.746979e+00	EEF1A2
-GO_Molecular_Function_2023	Nucleoside Diphosphate Kinase Activity (GO:0004550)	1/14	2.939739e-01	5.039518e-01	0	0	3.060597e+00	3.746979e+00	CMPK1
-GO_Molecular_Function_2023	Nucleoside Diphosphate Phosphatase Activity (GO:0017110)	1/14	2.939739e-01	5.039518e-01	0	0	3.060597e+00	3.746979e+00	GBP1
-GO_Molecular_Function_2023	Nucleotidyltransferase Activity (GO:0016779)	1/14	2.939739e-01	5.039518e-01	0	0	3.060597e+00	3.746979e+00	PNPT1
-GO_Molecular_Function_2023	Aldo-Keto Reductase (NADP) Activity (GO:0004033)	1/14	2.939739e-01	5.039518e-01	0	0	3.060597e+00	3.746979e+00	AKR1C3
-GO_Molecular_Function_2023	Alkali Metal Ion Binding (GO:0031420)	1/14	2.939739e-01	5.039518e-01	0	0	3.060597e+00	3.746979e+00	CPS1
-GO_Molecular_Function_2023	Phospholipase A1 Activity (GO:0008970)	1/14	2.939739e-01	5.039518e-01	0	0	3.060597e+00	3.746979e+00	PLA2G4C
-GO_Molecular_Function_2023	Calcium-Dependent Cysteine-Type Endopeptidase Activity (GO:0004198)	1/14	2.939739e-01	5.039518e-01	0	0	3.060597e+00	3.746979e+00	CAPN2
-GO_Molecular_Function_2023	Signaling Receptor Complex Adaptor Activity (GO:0030159)	2/44	2.940869e-01	5.039518e-01	0	0	1.895706e+00	2.320116e+00	LRRK2;SORBS1
-GO_Molecular_Function_2023	Potassium Channel Regulator Activity (GO:0015459)	2/45	3.032046e-01	5.147426e-01	0	0	1.851524e+00	2.209512e+00	AKAP9;FLNA
-GO_Molecular_Function_2023	Copper Ion Binding (GO:0005507)	2/45	3.032046e-01	5.147426e-01	0	0	1.851524e+00	2.209512e+00	AOC3;MUC2
-GO_Molecular_Function_2023	Amyloid-Beta Binding (GO:0001540)	3/79	3.066731e-01	5.162885e-01	0	0	1.571910e+00	1.857955e+00	LRP1;CLU;HSPG2
-GO_Molecular_Function_2023	Transmembrane Receptor Protein Serine/Threonine Kinase Activity (GO:0004675)	1/15	3.113190e-01	5.162885e-01	0	0	2.841837e+00	3.316245e+00	LTBP4
-GO_Molecular_Function_2023	Adrenergic Receptor Binding (GO:0031690)	1/15	3.113190e-01	5.162885e-01	0	0	2.841837e+00	3.316245e+00	AKAP5
-GO_Molecular_Function_2023	Peptidoglycan Binding (GO:0042834)	1/15	3.113190e-01	5.162885e-01	0	0	2.841837e+00	3.316245e+00	PGLYRP2
-GO_Molecular_Function_2023	Arachidonic Acid Epoxygenase Activity (GO:0008392)	1/15	3.113190e-01	5.162885e-01	0	0	2.841837e+00	3.316245e+00	CYP2C9
-GO_Molecular_Function_2023	Protein Phosphatase Binding (GO:0019903)	4/115	3.126021e-01	5.162885e-01	0	0	1.435374e+00	1.669087e+00	ANKLE2;SIRPA;AP3B1;AKAP5
-GO_Molecular_Function_2023	Calcium-Dependent Phospholipid Binding (GO:0005544)	2/47	3.213715e-01	5.277848e-01	0	0	1.769052e+00	2.008153e+00	PLA2G4C;ESYT2
-GO_Molecular_Function_2023	Syntaxin-1 Binding (GO:0017075)	1/16	3.282388e-01	5.277848e-01	0	0	2.652245e+00	2.954638e+00	LRRK2
-GO_Molecular_Function_2023	Hexose Transmembrane Transporter Activity (GO:0015149)	1/16	3.282388e-01	5.277848e-01	0	0	2.652245e+00	2.954638e+00	SLC2A9
-GO_Molecular_Function_2023	Wnt Receptor Activity (GO:0042813)	1/16	3.282388e-01	5.277848e-01	0	0	2.652245e+00	2.954638e+00	NID1
-GO_Molecular_Function_2023	Arachidonic Acid Monooxygenase Activity (GO:0008391)	1/16	3.282388e-01	5.277848e-01	0	0	2.652245e+00	2.954638e+00	CYP2C9
-GO_Molecular_Function_2023	Calcium-Dependent Phospholipase A2 Activity (GO:0047498)	1/16	3.282388e-01	5.277848e-01	0	0	2.652245e+00	2.954638e+00	PLA2G4C
-GO_Molecular_Function_2023	Pyrophosphatase Activity (GO:0016462)	2/49	3.394189e-01	5.433680e-01	0	0	1.693600e+00	1.829968e+00	ASMTL;CLU
-GO_Molecular_Function_2023	Phosphatidylcholine Transporter Activity (GO:0008525)	1/17	3.447437e-01	5.434257e-01	0	0	2.486352e+00	2.647851e+00	MTTP
-GO_Molecular_Function_2023	Calcium-Release Channel Activity (GO:0015278)	1/17	3.447437e-01	5.434257e-01	0	0	2.486352e+00	2.647851e+00	CLU
-GO_Molecular_Function_2023	Quaternary Ammonium Group Transmembrane Transporter Activity (GO:0015651)	1/17	3.447437e-01	5.434257e-01	0	0	2.486352e+00	2.647851e+00	SLC44A2
-GO_Molecular_Function_2023	Protein Tyrosine Kinase Binding (GO:1990782)	3/85	3.471046e-01	5.434257e-01	0	0	1.456442e+00	1.541104e+00	CEACAM3;SIRPA;TJP2
-GO_Molecular_Function_2023	S-adenosylmethionine-dependent Methyltransferase Activity (GO:0008757)	2/50	3.483880e-01	5.434257e-01	0	0	1.658231e+00	1.748503e+00	PCMT1;MUC1
-GO_Molecular_Function_2023	Nuclear Receptor Coactivator Activity (GO:0030374)	2/50	3.483880e-01	5.434257e-01	0	0	1.658231e+00	1.748503e+00	THRAP3;NCOA7
-GO_Molecular_Function_2023	Heme Binding (GO:0020037)	3/87	3.605493e-01	5.510796e-01	0	0	1.421619e+00	1.450231e+00	CYP2C9;STEAP4;CYP1B1
-GO_Molecular_Function_2023	5'-3' RNA Polymerase Activity (GO:0034062)	1/18	3.608439e-01	5.510796e-01	0	0	2.339976e+00	2.385161e+00	POLR1A
-GO_Molecular_Function_2023	Hormone Receptor Binding (GO:0051427)	1/18	3.608439e-01	5.510796e-01	0	0	2.339976e+00	2.385161e+00	GH1
-GO_Molecular_Function_2023	Nucleobase-Containing Compound Kinase Activity (GO:0019205)	1/18	3.608439e-01	5.510796e-01	0	0	2.339976e+00	2.385161e+00	CMPK1
-GO_Molecular_Function_2023	Oxidoreductase Activity, Acting On The CH-CH Group Of Donors, NAD Or NADP As Acceptor (GO:0016628)	1/18	3.608439e-01	5.510796e-01	0	0	2.339976e+00	2.385161e+00	BDH2
-GO_Molecular_Function_2023	Metallopeptidase Activity (GO:0008237)	4/124	3.627943e-01	5.517496e-01	0	0	1.327105e+00	1.345577e+00	PITRM1;ANPEP;ERAP1;MMP9
-GO_Molecular_Function_2023	Serine-Type Endopeptidase Activity (GO:0004252)	4/125	3.683779e-01	5.579168e-01	0	0	1.316069e+00	1.314287e+00	PCSK1;CELA2B;TPSAB1;MMP9
-GO_Molecular_Function_2023	Syntaxin Binding (GO:0019905)	2/53	3.750340e-01	5.587012e-01	0	0	1.560447e+00	1.530391e+00	LRRK2;SEPTIN9
-GO_Molecular_Function_2023	MAP Kinase Kinase Kinase Activity (GO:0004709)	1/19	3.765493e-01	5.587012e-01	0	0	2.209864e+00	2.158388e+00	LRRK2
-GO_Molecular_Function_2023	Alcohol Dehydrogenase (NADP+) Activity (GO:0008106)	1/19	3.765493e-01	5.587012e-01	0	0	2.209864e+00	2.158388e+00	AKR1C3
-GO_Molecular_Function_2023	Cysteine-Type Endopeptidase Inhibitor Activity Involved In Apoptotic Process (GO:0043027)	1/19	3.765493e-01	5.587012e-01	0	0	2.209864e+00	2.158388e+00	VIL1
-GO_Molecular_Function_2023	Retinoic Acid Binding (GO:0001972)	1/19	3.765493e-01	5.587012e-01	0	0	2.209864e+00	2.158388e+00	UGT2B15
-GO_Molecular_Function_2023	Purine Ribonucleoside Triphosphate Binding (GO:0035639)	13/476	3.872165e-01	5.721295e-01	0	0	1.118763e+00	1.061450e+00	GBP6;PRAG1;LRRK2;HSPA4L;MINK1;ABCC6;TAP1;MYO9B;SYN2;MYO18A;MYH9;PCK1;GBP1
-GO_Molecular_Function_2023	Phosphotransferase Activity, Phosphate Group As Acceptor (GO:0016776)	1/20	3.918695e-01	5.721295e-01	0	0	2.093448e+00	1.961197e+00	CMPK1
-GO_Molecular_Function_2023	Pyridoxal Phosphate Binding (GO:0030170)	1/20	3.918695e-01	5.721295e-01	0	0	2.093448e+00	1.961197e+00	PYGB
-GO_Molecular_Function_2023	Solute:Proton Symporter Activity (GO:0015295)	1/20	3.918695e-01	5.721295e-01	0	0	2.093448e+00	1.961197e+00	SLC2A9
-GO_Molecular_Function_2023	Iron Ion Binding (GO:0005506)	2/56	4.012234e-01	5.811371e-01	0	0	1.473529e+00	1.345681e+00	HAAO;LTF
-GO_Molecular_Function_2023	Protein Serine/Threonine Kinase Activator Activity (GO:0043539)	2/56	4.012234e-01	5.811371e-01	0	0	1.473529e+00	1.345681e+00	STING1;LTF
-GO_Molecular_Function_2023	Transforming Growth Factor Beta Binding (GO:0050431)	1/21	4.068140e-01	5.823025e-01	0	0	1.988673e+00	1.788611e+00	LTBP4
-GO_Molecular_Function_2023	Lysophospholipase Activity (GO:0004622)	1/21	4.068140e-01	5.823025e-01	0	0	1.988673e+00	1.788611e+00	PLA2G4C
-GO_Molecular_Function_2023	Cyclic Nucleotide Binding (GO:0030551)	1/21	4.068140e-01	5.823025e-01	0	0	1.988673e+00	1.788611e+00	STING1
-GO_Molecular_Function_2023	GTPase Activator Activity (GO:0005096)	6/211	4.161275e-01	5.933068e-01	0	0	1.164938e+00	1.021376e+00	SEC23A;LRRK2;MYO9B;IQGAP2;TBC1D17;ARHGAP45
-GO_Molecular_Function_2023	Hexosyltransferase Activity (GO:0016758)	3/96	4.203386e-01	5.961554e-01	0	0	1.283448e+00	1.112358e+00	HEXB;HEXA;UGT2B15
-GO_Molecular_Function_2023	poly(U) RNA Binding (GO:0008266)	1/22	4.213920e-01	5.961554e-01	0	0	1.893878e+00	1.636673e+00	PNPT1
-GO_Molecular_Function_2023	Zinc Ion Transmembrane Transporter Activity (GO:0005385)	1/23	4.356125e-01	6.045572e-01	0	0	1.807699e+00	1.502202e+00	SLC30A9
-GO_Molecular_Function_2023	Actin Monomer Binding (GO:0003785)	1/23	4.356125e-01	6.045572e-01	0	0	1.807699e+00	1.502202e+00	COBL
-GO_Molecular_Function_2023	Phospholipid Transfer Activity (GO:0120014)	1/23	4.356125e-01	6.045572e-01	0	0	1.807699e+00	1.502202e+00	MTTP
-GO_Molecular_Function_2023	Calmodulin-Dependent Protein Kinase Activity (GO:0004683)	1/23	4.356125e-01	6.045572e-01	0	0	1.807699e+00	1.502202e+00	CAMKK1
-GO_Molecular_Function_2023	Protein Phosphatase 2A Binding (GO:0051721)	1/23	4.356125e-01	6.045572e-01	0	0	1.807699e+00	1.502202e+00	ANKLE2
-GO_Molecular_Function_2023	Endopeptidase Activity (GO:0004175)	9/335	4.393399e-01	6.074207e-01	0	0	1.098739e+00	9.036926e-01	PCSK1;CELA2B;PITRM1;ERAP1;TPSAB1;TINAG;MMP9;CTSC;CTSB
-GO_Molecular_Function_2023	Glucose Transmembrane Transporter Activity (GO:0005355)	1/24	4.494841e-01	6.144633e-01	0	0	1.729015e+00	1.382615e+00	SLC2A9
-GO_Molecular_Function_2023	Notch Binding (GO:0005112)	1/24	4.494841e-01	6.144633e-01	0	0	1.729015e+00	1.382615e+00	NCOR2
-GO_Molecular_Function_2023	Phosphatidylinositol-3,5-Bisphosphate Binding (GO:0080025)	1/24	4.494841e-01	6.144633e-01	0	0	1.729015e+00	1.382615e+00	WASHC2C
-GO_Molecular_Function_2023	G Protein-Coupled Receptor Binding (GO:0001664)	4/140	4.512106e-01	6.145220e-01	0	0	1.170008e+00	9.311173e-01	PDCD6IP;SAA1;FLNA;FLNB
-GO_Molecular_Function_2023	Serine-Type Peptidase Activity (GO:0008236)	4/142	4.620277e-01	6.236187e-01	0	0	1.152933e+00	8.902145e-01	PCSK1;CELA2B;TPSAB1;MMP9
-GO_Molecular_Function_2023	Poly-Pyrimidine Tract Binding (GO:0008187)	1/25	4.630155e-01	6.236187e-01	0	0	1.656888e+00	1.275795e+00	PNPT1
-GO_Molecular_Function_2023	Ferrous Iron Binding (GO:0008198)	1/25	4.630155e-01	6.236187e-01	0	0	1.656888e+00	1.275795e+00	HAAO
-GO_Molecular_Function_2023	Cysteine-Type Peptidase Activity (GO:0008234)	4/144	4.727698e-01	6.343739e-01	0	0	1.136345e+00	8.512890e-01	CAPN2;TINAG;CTSC;CTSB
-GO_Molecular_Function_2023	GTPase Activity (GO:0003924)	7/265	4.758792e-01	6.343739e-01	0	0	1.079161e+00	8.013756e-01	GBP6;LRRK2;EEF1A2;MMUT;SEPTIN9;GBP1;SEPTIN11
-GO_Molecular_Function_2023	NAD+ ADP-ribosyltransferase Activity (GO:0003950)	1/26	4.762149e-01	6.343739e-01	0	0	1.590531e+00	1.179992e+00	PARP4
-GO_Molecular_Function_2023	N-methyltransferase Activity (GO:0008170)	1/27	4.890906e-01	6.427159e-01	0	0	1.529278e+00	1.093751e+00	MUC1
-GO_Molecular_Function_2023	Nuclear Thyroid Hormone Receptor Binding (GO:0046966)	1/27	4.890906e-01	6.427159e-01	0	0	1.529278e+00	1.093751e+00	THRAP3
-GO_Molecular_Function_2023	Carboxy-Lyase Activity (GO:0016831)	1/27	4.890906e-01	6.427159e-01	0	0	1.529278e+00	1.093751e+00	UMPS
-GO_Molecular_Function_2023	RNA Polymerase II-specific DNA-binding Transcription Factor Binding (GO:0061629)	6/228	4.895206e-01	6.427159e-01	0	0	1.074784e+00	7.677492e-01	STING1;PRKDC;HCLS1;NCOA7;TACC2;ADD1
-GO_Molecular_Function_2023	Ribonucleoside Triphosphate Phosphatase Activity (GO:0017111)	7/270	4.954677e-01	6.481925e-01	0	0	1.058370e+00	7.432435e-01	GBP6;LRRK2;EEF1A2;MMUT;SEPTIN9;GBP1;SEPTIN11
-GO_Molecular_Function_2023	Protein Heterodimerization Activity (GO:0046982)	5/190	5.009182e-01	6.516098e-01	0	0	1.074630e+00	7.429052e-01	AOC3;MTTP;HEXA;CYBA;ADD1
-GO_Molecular_Function_2023	Cell Adhesion Mediator Activity (GO:0098631)	1/28	5.016503e-01	6.516098e-01	0	0	1.472562e+00	1.015850e+00	SIRPA
-GO_Molecular_Function_2023	Gamma-Tubulin Binding (GO:0043015)	1/29	5.139019e-01	6.581551e-01	0	0	1.419898e+00	9.452585e-01	WASHC1
-GO_Molecular_Function_2023	Histone Demethylase Activity (GO:0032452)	1/29	5.139019e-01	6.581551e-01	0	0	1.419898e+00	9.452585e-01	RIOX2
-GO_Molecular_Function_2023	Hydrolase Activity, Hydrolyzing O-glycosyl Compounds (GO:0004553)	1/29	5.139019e-01	6.581551e-01	0	0	1.419898e+00	9.452585e-01	OVGP1
-GO_Molecular_Function_2023	miRNA Binding (GO:0035198)	1/29	5.139019e-01	6.581551e-01	0	0	1.419898e+00	9.452585e-01	PNPT1
-GO_Molecular_Function_2023	Phosphatase Binding (GO:0019902)	3/112	5.211973e-01	6.647012e-01	0	0	1.094149e+00	7.129769e-01	SIRPA;AP3B1;CTSC
-GO_Molecular_Function_2023	Glucuronosyltransferase Activity (GO:0015020)	1/30	5.258529e-01	6.647012e-01	0	0	1.370866e+00	8.811015e-01	UGT2B15
-GO_Molecular_Function_2023	RNA Exonuclease Activity, Producing 5'-Phosphomonoesters (GO:0016896)	1/30	5.258529e-01	6.647012e-01	0	0	1.370866e+00	8.811015e-01	PNPT1
-GO_Molecular_Function_2023	Magnesium Ion Binding (GO:0000287)	4/155	5.302628e-01	6.647012e-01	0	0	1.052967e+00	6.679836e-01	ALPP;LRRK2;PCK1;PGM1
-GO_Molecular_Function_2023	Kinesin Binding (GO:0019894)	1/31	5.375107e-01	6.647012e-01	0	0	1.325102e+00	8.226321e-01	NEFH
-GO_Molecular_Function_2023	O-acyltransferase Activity (GO:0008374)	1/31	5.375107e-01	6.647012e-01	0	0	1.325102e+00	8.226321e-01	PLA2G4C
-GO_Molecular_Function_2023	RNA Polymerase II Complex Binding (GO:0000993)	1/31	5.375107e-01	6.647012e-01	0	0	1.325102e+00	8.226321e-01	ELP2
-GO_Molecular_Function_2023	Phospholipase A2 Activity (GO:0004623)	1/31	5.375107e-01	6.647012e-01	0	0	1.325102e+00	8.226321e-01	PLA2G4C
-GO_Molecular_Function_2023	Poly-Purine Tract Binding (GO:0070717)	1/31	5.375107e-01	6.647012e-01	0	0	1.325102e+00	8.226321e-01	PNPT1
-GO_Molecular_Function_2023	ATPase Binding (GO:0051117)	2/73	5.381872e-01	6.647012e-01	0	0	1.119733e+00	6.937290e-01	DNAJC10;TOR1AIP1
-GO_Molecular_Function_2023	Nuclear Receptor Binding (GO:0016922)	3/115	5.390454e-01	6.647012e-01	0	0	1.064677e+00	6.579232e-01	THRAP3;NCOA7;TACC2
-GO_Molecular_Function_2023	Beta-Tubulin Binding (GO:0048487)	1/32	5.488824e-01	6.745525e-01	0	0	1.282291e+00	7.692092e-01	HTT
-GO_Molecular_Function_2023	Transition Metal Ion Transmembrane Transporter Activity (GO:0046915)	1/33	5.599751e-01	6.808508e-01	0	0	1.242156e+00	7.202801e-01	SLC30A9
-GO_Molecular_Function_2023	DNA Secondary Structure Binding (GO:0000217)	1/33	5.599751e-01	6.808508e-01	0	0	1.242156e+00	7.202801e-01	XPC
-GO_Molecular_Function_2023	RNA Polymerase Core Enzyme Binding (GO:0043175)	1/33	5.599751e-01	6.808508e-01	0	0	1.242156e+00	7.202801e-01	ELP2
-GO_Molecular_Function_2023	3'-5'-RNA Exonuclease Activity (GO:0000175)	1/34	5.707955e-01	6.808508e-01	0	0	1.204453e+00	6.753659e-01	PNPT1
-GO_Molecular_Function_2023	DNA-directed 5'-3' RNA Polymerase Activity (GO:0003899)	1/34	5.707955e-01	6.808508e-01	0	0	1.204453e+00	6.753659e-01	POLR1A
-GO_Molecular_Function_2023	Hsp70 Protein Binding (GO:0030544)	1/34	5.707955e-01	6.808508e-01	0	0	1.204453e+00	6.753659e-01	DNAJC10
-GO_Molecular_Function_2023	MHC Protein Binding (GO:0042287)	1/34	5.707955e-01	6.808508e-01	0	0	1.204453e+00	6.753659e-01	TAP1
-GO_Molecular_Function_2023	Nucleosomal DNA Binding (GO:0031492)	1/34	5.707955e-01	6.808508e-01	0	0	1.204453e+00	6.753659e-01	H1-6
-GO_Molecular_Function_2023	Sodium Channel Regulator Activity (GO:0017080)	1/34	5.707955e-01	6.808508e-01	0	0	1.204453e+00	6.753659e-01	GPLD1
-GO_Molecular_Function_2023	Hsp90 Protein Binding (GO:0051879)	1/35	5.813504e-01	6.911821e-01	0	0	1.168968e+00	6.340499e-01	GBP1
-GO_Molecular_Function_2023	Amino Acid Binding (GO:0016597)	1/36	5.916462e-01	6.988701e-01	0	0	1.135510e+00	5.959685e-01	ASS1
-GO_Molecular_Function_2023	Basal RNA Polymerase II Transcription Machinery Binding (GO:0001099)	1/36	5.916462e-01	6.988701e-01	0	0	1.135510e+00	5.959685e-01	ELP2
-GO_Molecular_Function_2023	Phosphatase Activity (GO:0016791)	2/83	6.080788e-01	7.153602e-01	0	0	9.809892e-01	4.879939e-01	ALPP;PON1
-GO_Molecular_Function_2023	Sulfotransferase Activity (GO:0008146)	1/38	6.114860e-01	7.153602e-01	0	0	1.074021e+00	5.282715e-01	SULT1A1
-GO_Molecular_Function_2023	Alpha-Tubulin Binding (GO:0043014)	1/38	6.114860e-01	7.153602e-01	0	0	1.074021e+00	5.282715e-01	WASHC1
-GO_Molecular_Function_2023	Tau Protein Binding (GO:0048156)	1/39	6.210421e-01	7.242184e-01	0	0	1.045704e+00	4.981276e-01	CLU
-GO_Molecular_Function_2023	Monoatomic Ion Gated Channel Activity (GO:0022839)	1/40	6.303637e-01	7.327476e-01	0	0	1.018838e+00	4.701515e-01	PIEZO1
-GO_Molecular_Function_2023	2-Oxoglutarate-Dependent Dioxygenase Activity (GO:0016706)	1/41	6.394564e-01	7.367842e-01	0	0	9.933163e-01	4.441483e-01	RIOX2
-GO_Molecular_Function_2023	Translation Initiation Factor Activity (GO:0003743)	1/41	6.394564e-01	7.367842e-01	0	0	9.933163e-01	4.441483e-01	EIF3J
-GO_Molecular_Function_2023	Protein Kinase Activator Activity (GO:0030295)	2/88	6.398920e-01	7.367842e-01	0	0	9.237171e-01	4.123989e-01	STING1;LTF
-GO_Molecular_Function_2023	3'-5' Exonuclease Activity (GO:0008408)	1/42	6.483259e-01	7.394967e-01	0	0	9.690393e-01	4.199446e-01	PNPT1
-GO_Molecular_Function_2023	Transcription Corepressor Binding (GO:0001222)	1/42	6.483259e-01	7.394967e-01	0	0	9.690393e-01	4.199446e-01	HDGF
-GO_Molecular_Function_2023	Regulatory RNA Binding (GO:0061980)	1/42	6.483259e-01	7.394967e-01	0	0	9.690393e-01	4.199446e-01	PNPT1
-GO_Molecular_Function_2023	Guanyl Ribonucleotide Binding (GO:0032561)	5/226	6.542643e-01	7.439453e-01	0	0	8.979014e-01	3.809292e-01	GBP6;STING1;LRRK2;PCK1;GBP1
-GO_Molecular_Function_2023	CCR Chemokine Receptor Binding (GO:0048020)	1/44	6.654169e-01	7.519417e-01	0	0	9.238728e-01	3.763317e-01	NES
-GO_Molecular_Function_2023	Phosphoric Diester Hydrolase Activity (GO:0008081)	1/44	6.654169e-01	7.519417e-01	0	0	9.238728e-01	3.763317e-01	GPLD1
-GO_Molecular_Function_2023	Damaged DNA Binding (GO:0003684)	1/45	6.736490e-01	7.588947e-01	0	0	9.028293e-01	3.566591e-01	XPC
-GO_Molecular_Function_2023	Manganese Ion Binding (GO:0030145)	1/48	6.971522e-01	7.829555e-01	0	0	8.450716e-01	3.048609e-01	PCK1
-GO_Molecular_Function_2023	Cytokine Receptor Binding (GO:0005126)	2/100	7.079096e-01	7.925982e-01	0	0	8.101081e-01	2.798428e-01	GH1;ERAP1
-GO_Molecular_Function_2023	Metalloendopeptidase Activity (GO:0004222)	2/101	7.130641e-01	7.959278e-01	0	0	8.018839e-01	2.711843e-01	PITRM1;MMP9
-GO_Molecular_Function_2023	GTP Binding (GO:0005525)	4/201	7.305260e-01	8.129329e-01	0	0	8.051783e-01	2.528183e-01	GBP6;LRRK2;PCK1;GBP1
-GO_Molecular_Function_2023	Monoatomic Cation Channel Activity (GO:0005261)	2/105	7.329246e-01	8.131230e-01	0	0	7.705839e-01	2.394301e-01	PIEZO1;CLU
-GO_Molecular_Function_2023	Oxidoreduction-Driven Active Transmembrane Transporter Activity (GO:0015453)	1/54	7.392112e-01	8.176124e-01	0	0	7.491721e-01	2.263785e-01	CYBRD1
-GO_Molecular_Function_2023	Hydrolase Activity, Acting On Carbon-Nitrogen (But Not Peptide) Bonds, In Linear Amides (GO:0016811)	1/56	7.518928e-01	8.266292e-01	0	0	7.218553e-01	2.058453e-01	ASAH1
-GO_Molecular_Function_2023	Amino Acid Transmembrane Transporter Activity (GO:0015171)	1/56	7.518928e-01	8.266292e-01	0	0	7.218553e-01	2.058453e-01	SLC38A10
-GO_Molecular_Function_2023	Nucleosome Binding (GO:0031491)	1/62	7.863625e-01	8.619289e-01	0	0	6.506524e-01	1.563761e-01	H1-6
-GO_Molecular_Function_2023	L-amino Acid Transmembrane Transporter Activity (GO:0015179)	1/63	7.916236e-01	8.650977e-01	0	0	6.401251e-01	1.495775e-01	SLC38A10
-GO_Molecular_Function_2023	Acyltransferase Activity, Transferring Groups Other Than Amino-Acyl Groups (GO:0016747)	1/64	7.967554e-01	8.681066e-01	0	0	6.299320e-01	1.431253e-01	PLA2G4C
-GO_Molecular_Function_2023	GDP Binding (GO:0019003)	1/67	8.114062e-01	8.814383e-01	0	0	6.012059e-01	1.256439e-01	GBP1
-GO_Molecular_Function_2023	Calcium Ion Transmembrane Transporter Activity (GO:0015085)	1/68	8.160517e-01	8.838542e-01	0	0	5.922023e-01	1.203814e-01	CLU
-GO_Molecular_Function_2023	Methylated Histone Binding (GO:0035064)	1/71	8.293141e-01	8.955611e-01	0	0	5.667347e-01	1.060680e-01	TTLL12
-GO_Molecular_Function_2023	Ligand-Gated Monoatomic Cation Channel Activity (GO:0099094)	1/75	8.455247e-01	9.091083e-01	0	0	5.359901e-01	8.993801e-02	CLU
-GO_Molecular_Function_2023	Protein Serine/Threonine Kinase Activity (GO:0004674)	6/342	8.479915e-01	9.091083e-01	0	0	7.059278e-01	1.163967e-01	PRKDC;LRRK2;MINK1;CAMKK1;MYLK;TTN
-GO_Molecular_Function_2023	Protein Tyrosine Phosphatase Activity (GO:0004725)	1/76	8.493313e-01	9.091083e-01	0	0	5.288163e-01	8.635885e-02	MTMR6
-GO_Molecular_Function_2023	Chromatin DNA Binding (GO:0031490)	1/83	8.734810e-01	9.322239e-01	0	0	4.834993e-01	6.540240e-02	H1-6
-GO_Molecular_Function_2023	Growth Factor Activity (GO:0008083)	1/85	8.796422e-01	9.360624e-01	0	0	4.719388e-01	6.052146e-02	GH1
-GO_Molecular_Function_2023	Calcium Channel Activity (GO:0005262)	1/91	8.963863e-01	9.511075e-01	0	0	4.403401e-01	4.816610e-02	CLU
-GO_Molecular_Function_2023	Growth Factor Receptor Binding (GO:0070851)	1/96	9.085491e-01	9.571069e-01	0	0	4.170569e-01	3.999842e-02	ERAP1
-GO_Molecular_Function_2023	Single-Stranded DNA Binding (GO:0003697)	1/96	9.085491e-01	9.571069e-01	0	0	4.170569e-01	3.999842e-02	XPC
-GO_Molecular_Function_2023	Transcription Coregulator Binding (GO:0001221)	1/99	9.151515e-01	9.571069e-01	0	0	4.042274e-01	3.584107e-02	HDGF
-GO_Molecular_Function_2023	Histone Deacetylase Binding (GO:0042826)	1/99	9.151515e-01	9.571069e-01	0	0	4.042274e-01	3.584107e-02	NCOR2
-GO_Molecular_Function_2023	Protein Tyrosine Kinase Activity (GO:0004713)	1/99	9.151515e-01	9.571069e-01	0	0	4.042274e-01	3.584107e-02	TTN
-GO_Molecular_Function_2023	DNA-binding Transcription Factor Binding (GO:0140297)	4/282	9.182521e-01	9.576057e-01	0	0	5.681828e-01	4.845652e-02	STING1;PRKDC;HCLS1;FLNA
-GO_Molecular_Function_2023	Ubiquitin-Like Protein Transferase Activity (GO:0019787)	3/240	9.364249e-01	9.737751e-01	0	0	4.998962e-01	3.283618e-02	RNF213;TRIM5;LMO7
-GO_Molecular_Function_2023	DNA-binding Transcription Repressor Activity, RNA Polymerase II-specific (GO:0001227)	2/243	9.834967e-01	9.999960e-01	0	0	3.269947e-01	5.441504e-03	MYH2;LRRFIP1
-GO_Molecular_Function_2023	Receptor Ligand Activity (GO:0048018)	3/319	9.857196e-01	9.999960e-01	0	0	3.733853e-01	5.370514e-03	GH1;FLNB;CHGB
-GO_Molecular_Function_2023	Ubiquitin Protein Ligase Binding (GO:0031625)	2/271	9.910251e-01	9.999960e-01	0	0	2.925324e-01	2.637296e-03	CLU;WASHC1
-GO_Molecular_Function_2023	Ubiquitin-Like Protein Ligase Binding (GO:0044389)	2/289	9.939625e-01	9.999960e-01	0	0	2.739289e-01	1.658859e-03	CLU;WASHC1
-GO_Molecular_Function_2023	Ubiquitin Protein Ligase Activity (GO:0061630)	2/311	9.962977e-01	9.999960e-01	0	0	2.541347e-01	9.426374e-04	RNF213;TRIM5
-GO_Molecular_Function_2023	Ubiquitin-Like Protein Ligase Activity (GO:0061659)	2/319	9.969043e-01	9.999960e-01	0	0	2.476179e-01	7.677495e-04	RNF213;TRIM5
-GO_Molecular_Function_2023	Ubiquitin-Protein Transferase Activity (GO:0004842)	3/412	9.978368e-01	9.999960e-01	0	0	2.870857e-01	6.217059e-04	RNF213;TRIM5;LMO7
-GO_Molecular_Function_2023	DNA Binding (GO:0003677)	8/846	9.996629e-01	9.999960e-01	0	0	3.690340e-01	1.244282e-04	H1-6;PARP4;MYBBP1A;IFI16;PRKDC;THRAP3;XPC;LRRFIP1
-GO_Molecular_Function_2023	Double-Stranded DNA Binding (GO:0003690)	3/650	9.999843e-01	9.999960e-01	0	0	1.792193e-01	2.809061e-06	H1-6;IFI16;PRKDC
-GO_Molecular_Function_2023	Transcription Cis-Regulatory Region Binding (GO:0000976)	1/474	9.999899e-01	9.999960e-01	0	0	8.213315e-02	8.308903e-07	AEBP1
-GO_Molecular_Function_2023	RNA Polymerase II Transcription Regulatory Region Sequence-Specific DNA Binding (GO:0000977)	6/1225	9.999952e-01	9.999960e-01	0	0	1.856178e-01	8.822086e-07	MUC1;MGAM;MYH2;THRAP3;AEBP1;LRRFIP1
-GO_Molecular_Function_2023	RNA Polymerase II Cis-Regulatory Region Sequence-Specific DNA Binding (GO:0000978)	5/1122	9.999954e-01	9.999960e-01	0	0	1.693985e-01	7.854608e-07	MUC1;MGAM;MYH2;THRAP3;LRRFIP1
-GO_Molecular_Function_2023	Cis-Regulatory Region Sequence-Specific DNA Binding (GO:0000987)	5/1098	9.999954e-01	9.999960e-01	0	0	1.733440e-01	8.002362e-07	MUC1;MGAM;MYH2;THRAP3;LRRFIP1
-GO_Molecular_Function_2023	Sequence-Specific DNA Binding (GO:0043565)	1/717	9.999960e-01	9.999960e-01	0	0	5.356573e-02	2.162240e-07	MYBBP1A
+GO_Molecular_Function_2023	Actin Binding (GO:0003779)	7/183	3.528973e-06	2.682019e-04	0	0	1.247096e+01	1.565667e+02	SMTN;SYNPO2;NRAP;DMD;IQGAP2;SYNE2;SYNE1
+GO_Molecular_Function_2023	Muscle Alpha-Actinin Binding (GO:0051371)	3/14	1.453766e-05	5.524312e-04	0	0	8.108141e+01	9.031470e+02	SYNPO2;NRAP;TTN
+GO_Molecular_Function_2023	Alpha-Actinin Binding (GO:0051393)	3/23	6.915173e-05	1.751844e-03	0	0	4.457463e+01	4.269896e+02	SYNPO2;NRAP;TTN
+GO_Molecular_Function_2023	Vinculin Binding (GO:0017166)	2/10	5.336190e-04	1.013876e-02	0	0	7.324265e+01	5.519440e+02	SYNM;DMD
+GO_Molecular_Function_2023	Cadherin Binding (GO:0045296)	6/319	8.741007e-04	1.328633e-02	0	0	5.875699e+00	4.137852e+01	LAD1;AHNAK;TNKS1BP1;LRRFIP1;PPL;PLEC
+GO_Molecular_Function_2023	Ankyrin Binding (GO:0030506)	2/18	1.781768e-03	2.256906e-02	0	0	3.660662e+01	2.317254e+02	OBSCN;PLEC
+GO_Molecular_Function_2023	Actinin Binding (GO:0042805)	2/20	2.202676e-03	2.391477e-02	0	0	3.253595e+01	1.990576e+02	SYNPO2;TTN
+GO_Molecular_Function_2023	MHC Class II Protein Complex Binding (GO:0023026)	2/25	3.438870e-03	3.266926e-02	0	0	2.545652e+01	1.444050e+02	HLA-DRB5;HLA-DRB1
+GO_Molecular_Function_2023	Phosphatidylinositol-3,4,5-Trisphosphate Binding (GO:0005547)	2/36	7.044828e-03	5.948966e-02	0	0	1.721107e+01	8.528881e+01	OBSCN;IQGAP2
+GO_Molecular_Function_2023	Axon Guidance Receptor Activity (GO:0008046)	1/5	1.737951e-02	1.051232e-01	0	0	7.219565e+01	2.925702e+02	HMCN2
+GO_Molecular_Function_2023	Telethonin Binding (GO:0031433)	1/6	2.081953e-02	1.051232e-01	0	0	5.775362e+01	2.236142e+02	TTN
+GO_Molecular_Function_2023	Alpha-Mannosidase Activity (GO:0004559)	1/6	2.081953e-02	1.051232e-01	0	0	5.775362e+01	2.236142e+02	MAN2B1
+GO_Molecular_Function_2023	Nitric-Oxide Synthase Binding (GO:0050998)	1/6	2.081953e-02	1.051232e-01	0	0	5.775362e+01	2.236142e+02	DMD
+GO_Molecular_Function_2023	CD4 Receptor Binding (GO:0042609)	1/7	2.424768e-02	1.051232e-01	0	0	4.812560e+01	1.790000e+02	HLA-DRB1
+GO_Molecular_Function_2023	Immunoglobulin Receptor Binding (GO:0034987)	1/7	2.424768e-02	1.051232e-01	0	0	4.812560e+01	1.790000e+02	IGHA2
+GO_Molecular_Function_2023	RNA Binding (GO:0003723)	10/1411	2.447910e-02	1.051232e-01	0	0	2.204259e+00	8.177658e+00	AHNAK;RRBP1;EPPK1;MAP4;HLA-A;LRRFIP1;FARSA;PLEC;SYNE1;TNS1
+GO_Molecular_Function_2023	Phosphatidylinositol-4,5-Bisphosphate Binding (GO:0005546)	2/73	2.704996e-02	1.051232e-01	0	0	8.226595e+00	2.969858e+01	SVIL;OBSCN
+GO_Molecular_Function_2023	Adenylate Cyclase Binding (GO:0008179)	1/8	2.766399e-02	1.051232e-01	0	0	4.124845e+01	1.479839e+02	AKAP12
+GO_Molecular_Function_2023	Mannosidase Activity (GO:0015923)	1/8	2.766399e-02	1.051232e-01	0	0	4.124845e+01	1.479839e+02	MAN2B1
+GO_Molecular_Function_2023	Cuprous Ion Binding (GO:1903136)	1/8	2.766399e-02	1.051232e-01	0	0	4.124845e+01	1.479839e+02	MUC2
+GO_Molecular_Function_2023	MHC Class II Receptor Activity (GO:0032395)	1/9	3.106852e-02	1.124385e-01	0	0	3.609058e+01	1.252906e+02	HLA-DRB1
+GO_Molecular_Function_2023	Filamin Binding (GO:0031005)	1/10	3.446130e-02	1.190481e-01	0	0	3.207890e+01	1.080391e+02	SYNPO2
+GO_Molecular_Function_2023	Titin Binding (GO:0031432)	1/12	4.121176e-02	1.280403e-01	0	0	2.624374e+01	8.369212e+01	OBSCN
+GO_Molecular_Function_2023	GTPase Inhibitor Activity (GO:0005095)	1/12	4.121176e-02	1.280403e-01	0	0	2.624374e+01	8.369212e+01	IQGAP2
+GO_Molecular_Function_2023	Phosphatidylinositol Bisphosphate Binding (GO:1902936)	2/93	4.211851e-02	1.280403e-01	0	0	6.412088e+00	2.030880e+01	SVIL;OBSCN
+GO_Molecular_Function_2023	Phosphatidylinositol-5-Phosphate Binding (GO:0010314)	1/16	5.457343e-02	1.574452e-01	0	0	1.924155e+01	5.595842e+01	OBSCN
+GO_Molecular_Function_2023	Phosphatidylinositol Phosphate Binding (GO:1901981)	2/109	5.593447e-02	1.574452e-01	0	0	5.448873e+00	1.571223e+01	OBSCN;IQGAP2
+GO_Molecular_Function_2023	Microtubule Plus-End Binding (GO:0051010)	1/19	6.447406e-02	1.750010e-01	0	0	1.603221e+01	4.395217e+01	DST
+GO_Molecular_Function_2023	Low-Density Lipoprotein Particle Receptor Binding (GO:0050750)	1/22	7.427249e-02	1.946451e-01	0	0	1.373982e+01	3.572373e+01	HSPG2
+GO_Molecular_Function_2023	Phosphatidylinositol-3,4-Bisphosphate Binding (GO:0043325)	1/25	8.396974e-02	2.058613e-01	0	0	1.202053e+01	2.977845e+01	OBSCN
+GO_Molecular_Function_2023	Phosphatidylinositol-4-Phosphate Binding (GO:0070273)	1/25	8.396974e-02	2.058613e-01	0	0	1.202053e+01	2.977845e+01	OBSCN
+GO_Molecular_Function_2023	NAD+ ADP-ribosyltransferase Activity (GO:0003950)	1/26	8.717986e-02	2.070522e-01	0	0	1.153913e+01	2.815296e+01	PARP4
+GO_Molecular_Function_2023	Lipoprotein Particle Receptor Binding (GO:0070325)	1/27	9.037888e-02	2.081453e-01	0	0	1.109476e+01	2.666897e+01	HSPG2
+GO_Molecular_Function_2023	Glutathione Transferase Activity (GO:0004364)	1/28	9.356685e-02	2.091494e-01	0	0	1.068331e+01	2.530960e+01	GSTO1
+GO_Molecular_Function_2023	aminoacyl-tRNA Ligase Activity (GO:0004812)	1/37	1.217675e-01	2.644093e-01	0	0	8.008857e+00	1.686379e+01	FARSA
+GO_Molecular_Function_2023	Pentosyltransferase Activity (GO:0016763)	1/39	1.279158e-01	2.690278e-01	0	0	7.586575e+00	1.560090e+01	PARP4
+GO_Molecular_Function_2023	Phosphatidylinositol-3-Phosphate Binding (GO:0032266)	1/40	1.309741e-01	2.690278e-01	0	0	7.391676e+00	1.502547e+01	OBSCN
+GO_Molecular_Function_2023	Copper Ion Binding (GO:0005507)	1/45	1.461075e-01	2.922150e-01	0	0	6.550066e+00	1.259848e+01	MUC2
+GO_Molecular_Function_2023	Myosin Binding (GO:0017022)	1/54	1.726958e-01	3.365354e-01	0	0	5.435330e+00	9.545655e+00	DMD
+GO_Molecular_Function_2023	Microtubule Binding (GO:0008017)	2/239	2.039082e-01	3.712873e-01	0	0	2.443907e+00	3.886020e+00	DST;MAP4
+GO_Molecular_Function_2023	Double-Stranded RNA Binding (GO:0003725)	1/65	2.040864e-01	3.712873e-01	0	0	4.498641e+00	7.149295e+00	LRRFIP1
+GO_Molecular_Function_2023	Ubiquitin-Like Protein Transferase Activity (GO:0019787)	2/240	2.051851e-01	3.712873e-01	0	0	2.433515e+00	3.854305e+00	RNF213;LMO7
+GO_Molecular_Function_2023	Kinase Binding (GO:0019900)	3/460	2.178420e-01	3.850231e-01	0	0	1.907933e+00	2.907662e+00	POTEE;MYOM2;TTN
+GO_Molecular_Function_2023	Hormone Activity (GO:0005179)	1/74	2.288938e-01	3.953621e-01	0	0	3.942228e+00	5.812802e+00	CHGB
+GO_Molecular_Function_2023	Amyloid-Beta Binding (GO:0001540)	1/79	2.423448e-01	4.092934e-01	0	0	3.688592e+00	5.228187e+00	HSPG2
+GO_Molecular_Function_2023	Protein Tyrosine Kinase Activity (GO:0004713)	1/99	2.938741e-01	4.855312e-01	0	0	2.932860e+00	3.591591e+00	TTN
+GO_Molecular_Function_2023	Tubulin Binding (GO:0015631)	2/322	3.112852e-01	5.033548e-01	0	0	1.802390e+00	2.103471e+00	DST;MAP4
+GO_Molecular_Function_2023	Protein Serine/Threonine Kinase Activity (GO:0004674)	2/342	3.370117e-01	5.336018e-01	0	0	1.694637e+00	1.843151e+00	TTN;MYLK
+GO_Molecular_Function_2023	Protease Binding (GO:0002020)	1/125	3.557273e-01	5.407055e-01	0	0	2.314867e+00	2.392625e+00	TTN
+GO_Molecular_Function_2023	Serine-Type Endopeptidase Activity (GO:0004252)	1/125	3.557273e-01	5.407055e-01	0	0	2.314867e+00	2.392625e+00	TPSAB1
+GO_Molecular_Function_2023	Serine-Type Peptidase Activity (GO:0008236)	1/142	3.932493e-01	5.860185e-01	0	0	2.034022e+00	1.898376e+00	TPSAB1
+GO_Molecular_Function_2023	Protein Homodimerization Activity (GO:0042803)	3/662	4.099982e-01	5.973019e-01	0	0	1.309379e+00	1.167445e+00	LRRFIP1;SYNE1;MYOM3
+GO_Molecular_Function_2023	Magnesium Ion Binding (GO:0000287)	1/155	4.204813e-01	5.973019e-01	0	0	1.861095e+00	1.612370e+00	FARSA
+GO_Molecular_Function_2023	Ubiquitin-Protein Transferase Activity (GO:0004842)	2/412	4.243987e-01	5.973019e-01	0	0	1.400287e+00	1.200161e+00	RNF213;LMO7
+GO_Molecular_Function_2023	GTPase Regulator Activity (GO:0030695)	2/424	4.388238e-01	6.063746e-01	0	0	1.359632e+00	1.119871e+00	OBSCN;IQGAP2
+GO_Molecular_Function_2023	Small GTPase Binding (GO:0031267)	1/199	5.040118e-01	6.626103e-01	0	0	1.444298e+00	9.895688e-01	IQGAP2
+GO_Molecular_Function_2023	GTP Binding (GO:0005525)	1/201	5.075125e-01	6.626103e-01	0	0	1.429710e+00	9.696779e-01	GBP6
+GO_Molecular_Function_2023	Guanyl-Nucleotide Exchange Factor Activity (GO:0005085)	1/203	5.109889e-01	6.626103e-01	0	0	1.415411e+00	9.503176e-01	OBSCN
+GO_Molecular_Function_2023	GTPase Activator Activity (GO:0005096)	1/211	5.246539e-01	6.626103e-01	0	0	1.360939e+00	8.778277e-01	IQGAP2
+GO_Molecular_Function_2023	Protein Kinase Binding (GO:0019901)	2/511	5.371896e-01	6.626103e-01	0	0	1.122212e+00	6.973471e-01	POTEE;TTN
+GO_Molecular_Function_2023	GTPase Binding (GO:0051020)	1/225	5.476679e-01	6.626103e-01	0	0	1.274974e+00	7.676443e-01	IQGAP2
+GO_Molecular_Function_2023	Metal Ion Binding (GO:0046872)	2/521	5.477358e-01	6.626103e-01	0	0	1.100023e+00	6.621722e-01	FARSA;TTN
+GO_Molecular_Function_2023	Guanyl Ribonucleotide Binding (GO:0032561)	1/226	5.492691e-01	6.626103e-01	0	0	1.269243e+00	7.604884e-01	GBP6
+GO_Molecular_Function_2023	DNA-binding Transcription Repressor Activity, RNA Polymerase II-specific (GO:0001227)	1/243	5.756496e-01	6.835839e-01	0	0	1.179063e+00	6.511449e-01	LRRFIP1
+GO_Molecular_Function_2023	GTPase Activity (GO:0003924)	1/265	6.075408e-01	7.075514e-01	0	0	1.079600e+00	5.380037e-01	GBP6
+GO_Molecular_Function_2023	Ribonucleoside Triphosphate Phosphatase Activity (GO:0017111)	1/270	6.144525e-01	7.075514e-01	0	0	1.059264e+00	5.158866e-01	GBP6
+GO_Molecular_Function_2023	Ubiquitin Protein Ligase Activity (GO:0061630)	1/311	6.667829e-01	7.447393e-01	0	0	9.172511e-01	3.717534e-01	RNF213
+GO_Molecular_Function_2023	Receptor Ligand Activity (GO:0048018)	1/319	6.761448e-01	7.447393e-01	0	0	8.938110e-01	3.497911e-01	CHGB
+GO_Molecular_Function_2023	Ubiquitin-Like Protein Ligase Activity (GO:0061659)	1/319	6.761448e-01	7.447393e-01	0	0	8.938110e-01	3.497911e-01	RNF213
+GO_Molecular_Function_2023	Endopeptidase Activity (GO:0004175)	1/335	6.940977e-01	7.535918e-01	0	0	8.502994e-01	3.104805e-01	TPSAB1
+GO_Molecular_Function_2023	Calcium Ion Binding (GO:0005509)	1/346	7.058675e-01	7.555765e-01	0	0	8.227263e-01	2.865783e-01	TTN
+GO_Molecular_Function_2023	DNA Binding (GO:0003677)	2/846	8.019189e-01	8.464700e-01	0	0	6.651101e-01	1.468216e-01	PARP4;LRRFIP1
+GO_Molecular_Function_2023	Purine Ribonucleoside Triphosphate Binding (GO:0035639)	1/476	8.153125e-01	8.488185e-01	0	0	5.935927e-01	1.212020e-01	GBP6
+GO_Molecular_Function_2023	Cis-Regulatory Region Sequence-Specific DNA Binding (GO:0000987)	1/1098	9.809262e-01	9.881110e-01	0	0	2.488077e-01	4.791546e-03	LRRFIP1
+GO_Molecular_Function_2023	RNA Polymerase II Cis-Regulatory Region Sequence-Specific DNA Binding (GO:0000978)	1/1122	9.825520e-01	9.881110e-01	0	0	2.431706e-01	4.280301e-03	LRRFIP1
+GO_Molecular_Function_2023	RNA Polymerase II Transcription Regulatory Region Sequence-Specific DNA Binding (GO:0000977)	1/1225	9.881110e-01	9.881110e-01	0	0	2.214881e-01	2.649062e-03	LRRFIP1
