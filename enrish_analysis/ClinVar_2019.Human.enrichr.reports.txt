@@ -1,0 +1,15 @@
+Gene_set	Term	P-value	Adjusted P-value	Old P-value	Old adjusted P-value	Odds Ratio	Combined Score	Genes
+ClinVar_2019	congenital muscular dystrophy	1.149789e-03	1.291556e-02	0	0	2.027119e+01	1.371990e+02	LAMA2;COL6A2;COL6A3
+ClinVar_2019	thoracic aortic aneurysm and aortic dissection	1.845080e-03	1.291556e-02	0	0	7.990000e+01	5.029891e+02	MYH11;MYLK
+ClinVar_2019	limb-girdle muscular dystrophy	2.852587e-03	1.331207e-02	0	0	1.349718e+01	7.908709e+01	MYH6;TTN;PLEC
+ClinVar_2019	limb-girdle muscular dystrophy, autosomal recessive	8.783916e-03	3.074370e-02	0	0	1.995000e+01	9.445992e+01	TTN;PLEC
+ClinVar_2019	primary familial hypertrophic cardiomyopathy	1.209880e-02	3.387664e-02	0	0	1.595333e+01	7.042837e+01	MYH6;TTN
+ClinVar_2019	atrial septal defect	2.520309e-02	4.410541e-02	0	0	inf	inf	MYH6
+ClinVar_2019	human immunodeficiency virus type 1, susceptibility to	2.520309e-02	4.410541e-02	0	0	inf	inf	HLA-C
+ClinVar_2019	nemaline myopathy	2.520309e-02	4.410541e-02	0	0	inf	inf	NEB
+ClinVar_2019	familial dilated cardiomyopathy	3.506646e-02	5.454783e-02	0	0	7.960000e+00	2.667006e+01	MYH6;TTN
+ClinVar_2019	primary dilated cardiomyopathy	4.681787e-02	6.554501e-02	0	0	6.627778e+00	2.029088e+01	MYH6;TTN
+ClinVar_2019	cardiomyopathy	8.882072e-02	1.130446e-01	0	0	4.407407e+00	1.067093e+01	MYH6;TTN
+ClinVar_2019	hereditary spherocytosis	9.712210e-02	1.133091e-01	0	0	1.308743e+01	3.051709e+01	SPTA1
+ClinVar_2019	limb-girdle muscular dystrophies, autosomal dominant	1.199146e-01	1.291388e-01	0	0	9.811475e+00	2.080990e+01	MYH6
+ClinVar_2019	glycogen storage disease	1.421407e-01	1.421407e-01	0	0	7.845902e+00	1.530686e+01	GAA
