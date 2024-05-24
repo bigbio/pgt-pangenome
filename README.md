@@ -26,7 +26,7 @@ Workflow components:
 - **Post-processing**: The identified peptides are then post-processed to identify novel peptides and perform a comprehensive analysis of the results.
   - **Peptide Alignment**: The identified peptides are aligned to a Global canonical protein sequences which includes (ENSEMBL, Uniprot TrEMBL) to identify novel peptides.
   - **Spectrum Validation**: Spectrum identification validation is based on [**MS2PIP**](https://github.com/compomics/ms2pip) and Signal-to-Noise ratio (**SNR**).
-  - **Variant annotation**: The identified peptides that contain Single Aminoacid variants (SAAVs) are validated using [spectrumAI tool](https://github.com/bigbio/py-pgatk)
+  - **Variant annotation**: The identified peptides that contain Single Aminoacid variants (SAAVs) are validated using [PySpectrumAI tool](https://github.com/bigbio/py-pgatk)
   - **Retention time prediction**: The retention time of the identified peptides is predicted using [DeepLC](https://github.com/compomics/DeepLC)
 - **Manual inspection of results using USIs** and [PRIDE USI Viewer](https://www.ebi.ac.uk/pride/archive/usi/)
 
@@ -63,7 +63,7 @@ Using DeepLC, the script `deeplc_novel.py` is designed to evaluate the performan
 
 We used two big normal tissue datasets to detect novel peptides from pangenomes and to validate the results. The datasets are:
 
-- [PXD010154](https://www.ebi.ac.uk/pride/archive/projects/PXD010154) by [Wang et al.](https://www.embopress.org/doi/full/10.15252/msb.20188503) that is used as a reference to search the databases can be obtained from this associated [SDRF file](PXD010154/PXD010154.sdrf.tsv).
+- [PXD010154](https://www.ebi.ac.uk/pride/archive/projects/PXD010154) by [Wang et al.](https://www.embopress.org/doi/full/10.15252/msb.20188503) that is used as a reference to search the databases can be obtained from this associated [PXD010154.sdrf.tsv](PXD010154/PXD010154.sdrf.tsv) file.
 - [PXD016999](https://www.ebi.ac.uk/pride/archive/projects/PXD016999) by [Jiang et al.](https://www.sciencedirect.com/science/article/pii/S0092867420310783?via%3Dihub) that is used to validate the results. Different to PXD010154, this dataset is divided in two different SDRFs [PXD016999-first-instrument.sdrf.tsv](PXD016999/PXD016999-first-instrument.sdrf.tsv), [PXD016999-second-instrument.sdrf.tsv](PXD016999/PXD016999-second-instrument.sdrf.tsv).
 
 ### Database information
@@ -73,32 +73,38 @@ We used two big normal tissue datasets to detect novel peptides from pangenomes 
 
 ### Results from analysis
 
-The original PSMs are stored in [quantms.io format](https://github.com/bigbio/quantms.io). 
+The original PSMs are stored in [quantms.io](https://github.com/bigbio/quantms.io) format. 
 
-- PXD010154 PSMs parquet from quantms.io: [PXD010154-pangenome-canonical-0.01.parquet](http://ftp.pride.ebi.ac.uk/pub/databases/pride/resources/proteomes/proteogenomics/noncanonical-tissues-2023/PXD010154-pangenome-canonical-0.01.parquet)
+- PXD010154 PSMs parquet from quantms.io: 
+  - [PXD010154-1de73bcb-ee3e-4d19-9d8d-da72f11d5fac.psm.parquet](http://ftp.pride.ebi.ac.uk/pub/databases/pride/resources/proteomes/proteogenomics/noncanonical-tissues-2023/PXD010154-1de73bcb-ee3e-4d19-9d8d-da72f11d5fac.psm.parquet)
 - PXD016999 PSMs parquet from quantms.io: 
   - [PXD016999-first-instrument-8b005cd8-d641-4d1e-a085-c92ed045b4da.psm.parquet](https://ftp.pride.ebi.ac.uk/pub/databases/pride/resources/proteomes/proteogenomics/noncanonical-tissues-2023/PXD016999-first-instrument-8b005cd8-d641-4d1e-a085-c92ed045b4da.psm.parquet)
   - [PXD016999-second-instrument-2739df94-8ceb-4033-a8d3-91adba121f3f.psm.parquet](https://ftp.pride.ebi.ac.uk/pub/databases/pride/resources/proteomes/proteogenomics/noncanonical-tissues-2023/PXD016999-second-instrument-2739df94-8ceb-4033-a8d3-91adba121f3f.psm.parquet)
 
 ## Structure of the repository
-
-- [deeplc_novel.py](deeplc_novel.py) For each sample, the Grch38 peptide of that sample was used to calibrate the model to. 
-- [ms2pip_novel.py](ms2pip_novel.py) The script is used to validate the identified peptides using MS2PIP and
+### Filtering scripts and notebooks
 - [gca_canonical_validation.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/gca_canonical_validation.ipynb) The GCA peptide in the results was compared with canonical protein to prevent misjudgment and modified to the input format supported by deeplc
+- [deeplc_novel.py](deeplc_novel.py) For each sample, the Grch38 peptide of that sample was used to calibrate the model to. 
+- [ms2pip_novel.py](ms2pip_novel.py) The script is used to validate the identified peptides using Signal-to-Noise ratio and MS2PIP
 
-### Other notebooks and files generated during the analysis  
+### Other notebooks during the analysis  
 - [blast_with_canonical.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/blast_with_canonical.ipynb) Obtaining variant information with canonical protein by blast
-- [count.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/count.ipynb) Statistics on novel peptide information
+- [compute_msms_distribution.py](https://github.com/bigbio/pgt-pangenome/blob/main/compute_msms_distribution.py) Calculate the MS/MS distribution in tiuuses
+- [count.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/count.ipynb) The resulting peptides are counted in multiple dimensions
 - [db_generation.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/db_generation.ipynb) Detailed operations to generate the project database
-Signal-to-Noise ratio.
- - [plots](https://github.com/bigbio/pgt-pangenome/tree/main/plots) Figures from the paper can be accessed here
-#### tables
-- [tables](https://github.com/bigbio/pgt-pangenome/blob/main/tables) The tables in the paper can be accessed here
-#### notebooks and scripts
-predict the GCA peptide
-- [gca_peptides_for_deeplc.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/gca_peptides_for_deeplc.ipynb) Use deeplc to predict GCA peptides and see the effect of deeplc
-- [get_observations.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/get_observations.ipynb) Obtains observation numbers for peptides
-- [get_tissue_distribution.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/get_tissue_distribution.ipynb) Obtains the distribution of initial and final result peptides in each tissue
+- [downstream_analysis.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/downstream_analysis.ipynb) Gene Enrichment analysis
+- [populations_study_plot.R](https://github.com/bigbio/pgt-pangenome/blob/main/populations_study_plot.R) Analysis of populations
+- [variant_analysis.ipynb](https://github.com/bigbio/pgt-pangenome/blob/main/variant_analysis.ipynb) Analysis of the final variants
+
+### Other files generated during the analysis 
+ - [blast_canonical-count-tables](https://github.com/bigbio/pgt-pangenome/tree/main/blast_canonical-count-tables) Comparison tables of the final peptides with canonical proteins
+ - [count-plots](https://github.com/bigbio/pgt-pangenome/tree/main/count-plots) Multidimensional statistical Figures
+- [count-tables](https://github.com/bigbio/pgt-pangenome/blob/main/count-tables) Multidimensional statistical Tables
+- [enrichment_analysis-plots](https://github.com/bigbio/pgt-pangenome/blob/main/enrichment_analysis-plots) Enrichment analysis Figures
+- [gene-plots](https://github.com/bigbio/pgt-pangenome/blob/main/gene-plots) Gene network analysis Figures
+- [pangenome-database-plots](https://github.com/bigbio/pgt-pangenome/blob/main/pangenome-database-plots) Protein and peptide distribution Figures from the Pangenome database
+- [PXD010154](https://github.com/bigbio/pgt-pangenome/blob/main/PXD010154) Tables and Figures of each filtration stage of PXD010154
+- [PXD016999](https://github.com/bigbio/pgt-pangenome/blob/main/PXD016999) Tables and Figures of each filtration stage of PXD016999
 
 ## Authors
 
